@@ -23,6 +23,9 @@ Content of the project folder:
 ├── index.html               # landing HTML file, this is what users see when you come to url
 └── README.md
 
+
+Gurshawns line of code, my file is already in here 
+
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
