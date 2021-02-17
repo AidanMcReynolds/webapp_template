@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application to remind users to brush take care of their bodies. 
 	
 ## Technologies
 Technologies used for this project:
@@ -21,6 +21,7 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+├── main.html                # main HTML page 
 └── README.md
 
 It has the following subfolders and files:
