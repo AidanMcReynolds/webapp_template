@@ -24,6 +24,9 @@ Content of the project folder:
 ├── main.html                # main HTML page 
 └── README.md
 
+
+Gurshawns line of code, my file is already in here 
+
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
