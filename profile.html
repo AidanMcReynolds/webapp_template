@@ -12,51 +12,53 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
-    <!-- Optional styles and scripts of your own -->
-    <!--our custom stylesheet-->
-    <link href="./styles/blah.css" rel="stylesheet">
+  <!-- Optional styles and scripts of your own -->
+  <!--our custom stylesheet-->
+  <link href="./styles/blah.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
+  <!-------------------------------------->
+  <!-- The following is HTML for layout -->
+  <!-------------------------------------->
 
-    <!-- Navigation Bar -->
-    <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
-        <li class="me-auto p-2 nav-item">
-            <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="home"> </i> Healthy
-                Reminder</a>
+  <!-- Navigation Bar -->
+  <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
+    <li class="me-auto p-2 nav-item">
+      <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="home"> </i> Healthy
+        Reminder</a>
+    </li>
+    <li class="p-2 nav-item">
+      <a class="nav-link" href="#"><i data-feather="bar-chart"></i>
+        <!--progress bar-->
+      </a>
+    </li>
+    <li class="p-2 nav-item">
+      <a class="nav-link" href="#"><i data-feather="calendar"></i>
+        <!--calendar-->
+      </a>
+    </li>
+    <div class="p-2 btn-group">
+      <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i data-feather="user"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+        <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
+        <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
+        <li>
+        <li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>
+        <hr class="dropdown-divider">
         </li>
-        <li class="p-2 nav-item">
-            <a class="nav-link" href="#"><i data-feather="bar-chart"></i>
-                <!--progress bar--></a>
-        </li>
-        <li class="p-2 nav-item">
-            <a class="nav-link" href="#"><i data-feather="calendar"></i>
-                <!--calendar--></a>
-        </li>
-        <div class="p-2 btn-group">
-            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <i data-feather="user"></i>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-                <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
-                <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
-                <li>
-                <li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>
-                <hr class="dropdown-divider">
-                </li>
-                <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
-            </ul>
-        </div>
-    </ul>
-    <!-- Navigation Bar -->
-
-    <div class="container">
-        <h1 class="display-6">Welcome Name</h1>
+        <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
+      </ul>
     </div>
+  </ul>
+  <!-- Navigation Bar -->
+
+  <div class="container">
+    <h1 class="display-6">Welcome Name</h1>
+  </div>
   </nav>
 
 
@@ -86,18 +88,12 @@
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
 
-<<<<<<< HEAD
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
   <!--------------------------------------------------------------------->
-=======
-        <!--------------------------------------------------------------------->
-        <!-- JS files: Your own JavaScript functions included here    -->
-        <!--------------------------------------------------------------------->
-        <!--icons-->
-        <script src="./scripts/feather.min.js"></script>
-        <script>feather.replace({ height: "20", width: "20" });</script>
->>>>>>> c362f4867179e9e5e8f4542119c9c7d0b5756e3c
+  <!--icons-->
+  <script src="./scripts/feather.min.js"></script>
+  <script>feather.replace({ height: "20", width: "20" });</script>
 </body>
 
 </html>
