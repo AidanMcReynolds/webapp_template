@@ -1,1 +1,6 @@
-
+a {
+    color: black;/* default is dark-blue*/
+}
+a:hover {
+    color: grey;/*default is blue*/
+}
