@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Date Picker</title>
+    <meta name="comp1800 boilerplate code" content="my bcit project" />
+    <meta name="author" content="BCIT" />
+    <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
+    <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
+    <!-- Bootstrap for Mobile-first, and JQuery -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+
+    <!-- Optional styles and scripts of your own -->
+    <!-- Firebase-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <style>
+        aside {
+
+            width: 30%;
+            min-width: 150px;
+            max-width: 300px;
+
+        }
+
+        .ui-datepicker-header {
+            background: #EAEAEA;
+            color: #333;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+
+
+        .ui-datepicker {
+            display: block;
+            text-align: center;
+            font-family: "Helvetica";
+            color: #666;
+            background: #FAFAFA;
+        }
+
+        .date-block {
+            text-align: center;
+            background: rgb(89, 223, 71);
+            font-family: "Helvetica";
+            color: #EEE;
+            font-size: 18pt;
+            padding: 10px;
+
+        }
+
+        .date-day {
+            font-size: 24pt;
+        }
+
+        .date-date {
+            font-size: 48pt;
+        }
+
+        .ui-datepicker-prev,
+        .ui-datepicker-next {
+            display: inline-block;
+            font-family: FontAwesome;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            background-color: white;
+            background-repeat: no-repeat;
+            position: relative;
+            color: transparent !important;
+        }
+
+        .ui-datepicker-prev {
+            float: left;
+            background-position: center -30px;
+        }
+
+        .ui-datepicker-next {
+            float: right;
+            background-position: center 0px;
+        }
+
+        .ui-datepicker-prev:before {
+            content: "\f053";
+            display: block;
+            color: rgba(0, 0, 0, .3) !important;
+
+        }
+
+        .ui-datepicker-next:before {
+            content: "\f054";
+            display: block;
+            color: rgba(0, 0, 0, .3) !important;
+
+        }
+
+        .ui-datepicker-year {
+            font-weight: normal;
+        }
+
+
+
+        .ui-datepicker-calendar {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+            background: #FAFAFA;
+            font-family: "Helvetica";
+        }
+
+        .ui-datepicker td a {
+            text-decoration: none;
+        }
+
+        .ui-datepicker td a,
+        .ui-datepicker td span {
+            display: block;
+            width: 100%;
+            font-size: 12px;
+            padding: 10px 0;
+            color: #333;
+        }
+
+        .ui-datepicker td span {
+            color: #BBB;
+        }
+
+        .ui-datepicker .ui-state-active {
+            background: #EEE;
+        }
+
+        .ui-datepicker .ui-state-highlight {
+            background: #FFF;
+            color: rgb(218, 25, 192);
+        }
+
+        .ui-datepicker td.past {
+            color: #BBB;
+        }
+
+        .ui-datepicker a:hover {
+            background: rgb(89, 223, 71);
+            color: rgb(255, 255, 255);
+        }
+    </style>
+    </head>
+
+    <body>
+        <!-------------------------------------->
+        <!-- The following is HTML for layout -->
+        <!-------------------------------------->
+        <!-- Header Navigation Bar . Testing out Nav Bar vvvvvvvvvvvvvvvvv-->
+
+        <ul class="nav shadow-sm p-3 mb-5 bg-body rounded">
+            <li class="me-auto p-2 nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i data-feather="home"> </i> Home</a>
+            </li>
+            <li class="p-2 nav-item">
+                <a class="nav-link" href="#"><i data-feather="bar-chart"></i> progress bar</a>
+            </li>
+            <li class="p-2 nav-item">
+                <a class="nav-link" href="#"><i data-feather="calendar"></i> calendar</a>
+            </li>
+            <li class="p-2 nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+            <div class="p-2 btn-group">
+                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i data-feather="user"></i> profile
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-home"></i> Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </ul>
+
+        <aside>
+            <div id="calendar">
+                <div class="date-block ui-datepicker-trigger">
+                    <div class="date-day">Tuesday</div>
+                    <div class="date-date">8</div>
+                    <span class="date-month">April</span>,
+                    <span class="date-year">2014</span>
+                </div>
+                <div id="datepicker"></div>
+                <input id="date" type="text">
+            </div>
+        </aside>
+        <script>
+            $(function () {
+                $('#datepicker').datepicker({
+
+                    inline: true,
+                    showOtherMonths: true,
+                    dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    altField: "#date",
+                });
+            });
+
+            $(document).ready(function () {
+                $("#datepicker").datepicker("show");
+
+            });
+        </script>
+    </body>
+
+</html>

@@ -12,9 +12,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
-  <!-- Optional styles and scripts of your own -->
-  <!--our custom stylesheet-->
-  <link href="./styles/blah.css" rel="stylesheet">
+    <!-- Optional styles and scripts of your own -->
+    <!--our custom stylesheet-->
+    <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
+  <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
+    <link href="./styles/blah.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,36 +24,40 @@
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
 
-  <!-- Navigation Bar -->
-  <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
-    <li class="me-auto p-2 nav-item">
-      <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="home"> </i> Healthy
-        Reminder</a>
-    </li>
-    <li class="p-2 nav-item">
-      <a class="nav-link" href="#"><i data-feather="bar-chart"></i>
-        <!--progress bar-->
-      </a>
-    </li>
-    <li class="p-2 nav-item">
-      <a class="nav-link" href="#"><i data-feather="calendar"></i>
-        <!--calendar-->
-      </a>
-    </li>
-    <div class="p-2 btn-group">
-      <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <i data-feather="user"></i>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-        <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
-        <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
-        <li>
-        <li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>
-        <hr class="dropdown-divider">
+    <!-- Navigation Bar -->
+    <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
+        <li class="me-auto nav-item">
+            <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
+                Reminder</a>
         </li>
-        <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
-      </ul>
+        <li class="nav-item">
+            <a class="nav-link  right-s-nav" title="progress bar" href="#"><i data-feather="bar-chart"></i>
+                <!--progress bar--></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link  right-s-nav" title="calendar" href="#"><i data-feather="calendar"></i>
+                <!--calendar--></a>
+        </li>
+        <div class="btn-group">
+            <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown" aria-expanded="false">
+                <i data-feather="user"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+                <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
+                <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
+                <li>
+                <li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>
+                <hr class="dropdown-divider">
+                </li>
+                <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
+            </ul>
+        </div>
+    </ul>
+    <!-- Navigation Bar -->
+
+    <div class="container">
+        <h1 class="display-6">Welcome Name</h1>
     </div>
   </ul>
   <!-- Navigation Bar -->

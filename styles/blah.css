@@ -1,6 +1,6 @@
-a {
+.right-s-nav {
     color: black;/* default is dark-blue*/
 }
-a:hover {
+.right-s-nav:hover {
     color: grey;/*default is blue*/
 }
