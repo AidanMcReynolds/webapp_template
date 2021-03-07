@@ -17,6 +17,7 @@
   <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
   <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
   <link href="./styles/blah.css" rel="stylesheet">
+  <link href="./styles/tasks.css" rel="stylesheet">
 </head>
 
 <body>
@@ -61,7 +62,7 @@
   </ul>
   <!-- Navigation Bar -->
 
-
+<!--
   <div class="container">
     <ul class="list-group">
       <li class="list-group-item">
@@ -91,12 +92,56 @@
       </li>
     </ul>
   </div>
+
+-->
+  <div class="container" id="task-container">
+    <div class="task-check">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    </div>
+    <div class="task-text">
+      Running
+    </div>
+    <div class="task-del">
+      <button type="button" class="btn btn-outline-danger btn-sm"><i data-feather="trash-2"></i></button>
+    </div>
+    <div class="task-check">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    </div>
+    <div class="task-text">
+      Meditation
+    </div>
+    <div class="task-del">
+      <button type="button" class="btn btn-outline-danger btn-sm"><i data-feather="trash-2"></i></button>
+    </div>
+    <div class="task-check">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    </div>
+    <div class="task-text">
+      Eating fruit
+    </div>
+    <div class="task-del">
+      <button type="button" class="btn btn-outline-danger btn-sm"><i data-feather="trash-2"></i></button>
+    </div>
+    <div class="task-check">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    </div>
+    <div class="task-text">
+      Sleeping
+    </div>
+    <div class="task-del">
+      <button type="button" class="btn btn-outline-danger btn-sm"><i data-feather="trash-2"></i></button>
+    </div>
+    <div class="task-add">
+      <button type="button" class="btn btn-outline-primary btn-sm">
+        <i data-feather="plus"></i>
+      </button>
+    </div>
+  </div>
   <nav class="navbar fixed-bottom navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Fixed bottom</a>
     </div>
   </nav>
-
 
   <!----------------------------------------------->
   <!-- JS: Boostrap, Firebase, API related    -->
