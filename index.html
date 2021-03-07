@@ -19,6 +19,9 @@
     />
 
     <!-- Optional styles and scripts of your own -->
+    <!-- Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
   </head>
 
   <body>
@@ -55,15 +58,19 @@
     </div>
     
 
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    <div class="container">
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
+      
     </div>
-
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
-      </div>
     
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
@@ -76,5 +83,57 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
+
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyB2qPnJ_euWzWG-9BC2qqm8Zm5csulv3rY",
+        authDomain: "march-a62dc.firebaseapp.com",
+        projectId: "march-a62dc",
+        storageBucket: "march-a62dc.appspot.com",
+        messagingSenderId: "727267053387",
+        appId: "1:727267053387:web:d7bdcf5c7274fef16a62ce",
+        measurementId: "G-RGGPM4X6C3"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      var uiConfig = {
+          callbacks: {
+            signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+              // User successfully signed in.
+              // Return type determines whether we continue the redirect automatically
+              // or whether we leave that to developer to handle.
+              return true;
+            },
+            uiShown: function () {
+              // The widget is rendered.
+              // Hide the loader.
+              document.getElementById('loader').style.display = 'none';
+            }
+          },
+          // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+          signInFlow: 'popup',
+          signInSuccessUrl: 'main.html',
+          signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+          ],
+          // Terms of service url.
+          tosUrl: '<your-tos-url>',
+          // Privacy policy url.
+          privacyPolicyUrl: '<your-privacy-policy-url>'
+        };
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+
+    </script>
   </body>
 </html>
