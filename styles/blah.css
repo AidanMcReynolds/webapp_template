@@ -4,3 +4,132 @@
 .right-s-nav:hover {
     color: grey;/*default is blue*/
 }
+
+/*CSS for datepicker.html==================VVVVVV================*/
+aside {
+
+    width: 30%;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+.ui-datepicker-header {
+    background: #EAEAEA;
+    color: #333;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.ui-datepicker {
+    display: block;
+    text-align: center;
+    font-family: "Helvetica";
+    color: #666;
+    background: #FAFAFA;
+}
+
+.date-block {
+    text-align: center;
+    background: rgb(89, 223, 71);
+    font-family: "Helvetica";
+    color: #EEE;
+    font-size: 18pt;
+    padding: 10px;
+}
+
+.date-day {
+    font-size: 24pt;
+}
+
+.date-date {
+    font-size: 48pt;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+    display: inline-block;
+    font-family: FontAwesome;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    background-repeat: no-repeat;
+    position: relative;
+    color: transparent !important;
+}
+
+.ui-datepicker-prev {
+    float: left;
+    background-position: center -30px;
+}
+
+.ui-datepicker-next {
+    float: right;
+    background-position: center 0px;
+}
+
+.ui-datepicker-prev:before {
+    content: "\f053";
+    display: block;
+    color: rgba(0, 0, 0, .3) !important;
+
+}
+
+.ui-datepicker-next:before {
+    content: "\f054";
+    display: block;
+    color: rgba(0, 0, 0, .3) !important;
+
+}
+
+.ui-datepicker-year {
+    font-weight: normal;
+}
+
+
+
+.ui-datepicker-calendar {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    background: #FAFAFA;
+    font-family: "Helvetica";
+}
+
+.ui-datepicker td a {
+    text-decoration: none;
+}
+
+.ui-datepicker td a,
+.ui-datepicker td span {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    padding: 10px 0;
+    color: #333;
+}
+
+.ui-datepicker td span {
+    color: #BBB;
+}
+
+.ui-datepicker .ui-state-active {
+    background: #EEE;
+}
+
+.ui-datepicker .ui-state-highlight {
+    background: #FFF;
+    color: rgb(218, 25, 192);
+}
+
+.ui-datepicker td.past {
+    color: #BBB;
+}
+
+.ui-datepicker a:hover {
+    background: rgb(89, 223, 71);
+    color: rgb(255, 255, 255);
+}
+/*CSS for datepicker.html==========================^^^^^^^^========*/
