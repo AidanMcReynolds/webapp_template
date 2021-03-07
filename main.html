@@ -29,6 +29,7 @@
     <li class="me-auto nav-item">
       <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy Reminder</a>
     </li>
+<<<<<<< HEAD
     <li class="nav-item">
       <a class="nav-link right-s-nav" title="progress bar" href="#"><i data-feather="bar-chart"></i>
         <!--progress bar--></a>
@@ -36,6 +37,17 @@
     <li class="nav-item">
       <a class="nav-link right-s-nav" title="calendar" href="#"><i data-feather="calendar"></i>
         <!--calendar--></a>
+=======
+    <li class="p-2 nav-item">
+      <a class="nav-link" href="#"><i data-feather="bar-chart"></i>
+        <!--progress bar-->
+      </a>
+    </li>
+    <li class="p-2 nav-item">
+      <a class="nav-link" href="#"><i data-feather="calendar"></i>
+        <!--calendar-->
+      </a>
+>>>>>>> c1b66568963b3822fe401b57df3227772d63e4e5
     </li>
     <!--<li class="p-2 nav-item">
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -59,36 +71,42 @@
   </ul>
   <!-- Navigation Bar -->
 
+
   <div class="container">
     <ul class="list-group">
-      <li class="list-group-item">
+      <li class="list-group-item clearfix">
         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
         Running
+        <button type="button" class="btn btn-outline-danger btn-sm float-right"><i data-feather="trash-2"></i></button>
       </li>
       <li class="list-group-item">
         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
         Meditation
+        <button type="button" class="btn btn-outline-danger btn-sm float-right"><i data-feather="trash-2"></i></button>
       </li>
       <li class="list-group-item">
         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
         Eating fruit
+        <button type="button" class="btn btn-outline-danger btn-sm float-right"><i data-feather="trash-2"></i></button>
       </li>
       <li class="list-group-item">
         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
         Sleeping
+        <button type="button" class="btn btn-outline-danger btn-sm float-right"><i data-feather="trash-2"></i></button>
+      </li>
+      <li class="list-group-item">
+        <button type="button" class="btn btn-outline-primary btn-sm">
+          <i data-feather="plus"></i>
+        </button>
       </li>
     </ul>
   </div>
-  <div class="container" id="logged-in"></div>
   <nav class="navbar fixed-bottom navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Fixed bottom</a>
     </div>
   </nav>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
 
   <!----------------------------------------------->
   <!-- JS: Boostrap, Firebase, API related    -->
@@ -100,32 +118,11 @@
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
   <!--------------------------------------------------------------------->
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyB2qPnJ_euWzWG-9BC2qqm8Zm5csulv3rY",
-      authDomain: "march-a62dc.firebaseapp.com",
-      projectId: "march-a62dc",
-      storageBucket: "march-a62dc.appspot.com",
-      messagingSenderId: "727267053387",
-      appId: "1:727267053387:web:d7bdcf5c7274fef16a62ce",
-      measurementId: "G-RGGPM4X6C3"
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        document.getElementById("logged-in").innerHTML = "logged in succesfully"
-      } else {
-        document.getElementById("logged-in").innerHTML = "not logged in"
-      }
-    });
-
-  </script>
-
-  <!--------------------------------------------------------------------->
-  <!-- JS files: Your own JavaScript functions included here    -->
-  <!--------------------------------------------------------------------->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <script src="./scripts/auth.js"></script>
   <!--icons-->
   <script src="./scripts/feather.min.js"></script>
   <script>feather.replace({ height: "20", width: "20" });</script>
