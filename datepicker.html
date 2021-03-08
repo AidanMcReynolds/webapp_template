@@ -18,23 +18,24 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <!--our custom stylesheet-->
     <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
-  <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
+    <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
     <link href="./styles/datepicker.css" rel="stylesheet">
     <link href="./styles/blah.css" rel="stylesheet">
 </head>
 
-    <body>
-        <!-------------------------------------->
-        <!-- The following is HTML for layout -->
-        <!-------------------------------------->
-          <!-- Navigation Bar -->
+<body>
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <!-- Navigation Bar -->
     <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
         <li class="me-auto nav-item">
             <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
                 Reminder</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i data-feather="bar-chart"></i>
+            <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i
+                    data-feather="bar-chart"></i>
                 <!--progress bar-->
             </a>
         </li>
@@ -44,55 +45,72 @@
             </a>
         </li>
         <div class="btn-group">
-            <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown" aria-expanded="false">
-              <!--<i class="fas fa-home"></i> misc-->
-              <i data-feather="user"></i>
+            <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i data-feather="user"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-              <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
-              <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
-              <li>
-              <li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
-              <hr class="dropdown-divider">
-              </li>
-              <!--<li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>-->
+                <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+                <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
+                <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
+                <li>
+                <li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
+                <hr class="dropdown-divider">
+                </li>
+                <!--<li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>-->
             </ul>
-          </div>
-        </ul>
+        </div>
+    </ul>
     <!-- Navigation Bar -->
 
-        <aside>
-            <div id="calendar">
-                <div class="date-block ui-datepicker-trigger">
-                    <div class="date-day">Tuesday</div>
-                    <div class="date-date">8</div>
-                    <span class="date-month">April</span>,
-                    <span class="date-year">2014</span>
-                </div>
-                <div id="datepicker"></div>
-                <input id="date" type="text">
+    <aside>
+        <div id="calendar">
+            <div class="date-block ui-datepicker-trigger">
+                <div class="date-day">Tuesday</div>
+                <div class="date-date">8</div>
+                <span class="date-month">April</span>,
+                <span class="date-year">2014</span>
             </div>
-        </aside>
-        <script>
-            $(function () {
-                $('#datepicker').datepicker({
+            <div id="datepicker"></div>
+            <input id="date" type="text">
+        </div>
+    </aside>
+    <script>
+        $(function () {
+            $('#datepicker').datepicker({
 
-                    inline: true,
-                    showOtherMonths: true,
-                    dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                    altField: "#date",
-                });
+                inline: true,
+                showOtherMonths: true,
+                dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                altField: "#date",
             });
+        });
 
-            $(document).ready(function () {
-                $("#datepicker").datepicker("show");
+        $(document).ready(function () {
+            $("#datepicker").datepicker("show");
 
-            });
-        </script>
-        <!--icons-->
-        <script src="./scripts/feather.min.js"></script>
-        <script>feather.replace({ height: "20", width: "20" });</script>
-    </body>
+        });
+    </script>
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="./scripts/auth.js"></script>
+    
+    <!--icons-->
+    <script src="./scripts/feather.min.js"></script>
+    <script>feather.replace({ height: "20", width: "20" });</script>
+</body>
 
 </html>
