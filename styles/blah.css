@@ -4,3 +4,6 @@
 .right-s-nav:hover {
     color: grey;/*default is blue*/
 }
+.card {
+    border: none;
+}

@@ -12,11 +12,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
-    <!-- Optional styles and scripts of your own -->
-    <!--our custom stylesheet-->
-    <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
+  <!-- Optional styles and scripts of your own -->
+  <!--our custom stylesheet-->
+  <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
   <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
-    <link href="./styles/blah.css" rel="stylesheet">
+  <link href="./styles/blah.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,46 +24,121 @@
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
 
-    <!-- Navigation Bar -->
-    <ul class="nav nav-light nav-expand-lg shadow-sm mb-5">
-        <li class="me-auto nav-item">
-            <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
-                Reminder</a>
+  <!-- Navigation Bar -->
+  <ul class="nav sticky-top nav-light nav-expand-lg shadow-sm mb-5">
+    <li class="me-auto nav-item">
+      <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
+        Reminder</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link right-s-nav" title="progress bar" href="./progress.html"><i data-feather="bar-chart"></i>
+        <!--progress bar--></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i data-feather="calendar"></i>
+        <!--calendar--></a>
+    </li>
+    <div class="btn-group">
+      <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <i data-feather="user"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+        <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
+        <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
+        <li>
+        <li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
+        <hr class="dropdown-divider">
         </li>
-        <li class="nav-item">
-            <a class="nav-link right-s-nav" title="progress bar" href="./progress.html"><i data-feather="bar-chart"></i>
-                <!--progress bar--></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i data-feather="calendar"></i>
-                <!--calendar--></a>
-        </li>
-        <div class="btn-group">
-            <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown" aria-expanded="false">
-                <i data-feather="user"></i>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-                <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
-                <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
-                <li>
-                <li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
-                <hr class="dropdown-divider">
-                </li>
-                <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
-            </ul>
-        </div>
-    </ul>
-    <!-- Navigation Bar -->
-
-    <div class="container">
-        <h1 class="display-6">Welcome Name</h1>
+        <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
+      </ul>
     </div>
   </ul>
+
   <!-- Navigation Bar -->
 
   <div class="container">
-    <h1 class="display-6">Welcome Name</h1>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card" style="width: 18rem;">
+          <img src="./images/profile_random.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Edit profile</a>
+            <div class="mb-3" id="icon-bar">
+              <a class="links" href="#">
+                <i class="fas fa-star"> </i>
+                <span class="text-bold color-text-primary">2</span>
+                stars
+              </a>
+              <a class="links" href="#">
+                <i data-feather="users"> </i>
+                <span class="text-bold color-text-primary">4</span>
+                follows
+              </a>
+              <a class="links" href="#">
+                <i class="fas fa-heart"> </i>
+                <span class="text-bold color-text-primary">2</span>
+                likes
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-7">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <p>
+            <div id="name">
+              <div>
+                <label>
+                  <h3>Name</h3>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <h5>First Last</h5>
+                </label>
+              </div>
+              <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
+                data-bs-trigger="focus" title="Dismissible popover"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?">Change name</a>
+            </div>
+          </p>
+            <p>
+            <div id="email">
+              <div>
+                <label>
+                  <h3>Email</h3>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <h5>firstlast@example.com</h5>
+                </label>
+              </div>
+                <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" title="Dismissible popover"
+              data-bs-content="And here's some amazing content. It's very engaging. Right?">Change email</a>
+            </div>
+          </p>
+          <p>
+            <div id="password">
+              <div>
+                <label>
+                  <h3>Password</h3>
+                </label>
+              </div>
+                <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
+              data-bs-trigger="focus" title="Dismissible popover"
+              data-bs-content="And here's some amazing content. It's very engaging. Right?">Change password</a>
+            </div>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   </nav>
 
@@ -71,14 +146,7 @@
 
   <!--Profile component Feb 17 2021-->
   <div class="container">
-    <div class="card" style="width: 18rem;">
-      <img src="./images/profile_random.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Name</h5>
-        <p class="card-text">A description of stuff:</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+
   </div>
   <!--Profile component Feb 17 2021-->
 
@@ -98,12 +166,18 @@
   <!-- JS files: Your own JavaScript functions included here    -->
   <!--------------------------------------------------------------------->
   <!--auth-->
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-  <script src="./scripts/auth.js"></script>
+  <script src="./scripts/auth.js"></script>-->
   <!--icons-->
+  <script>
+    var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+      trigger: 'focus'
+    });
+
+  </script>
   <script src="./scripts/feather.min.js"></script>
   <script>feather.replace({ height: "20", width: "20" });</script>
 </body>
