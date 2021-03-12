@@ -76,22 +76,7 @@
             <input id="date" type="text">
         </div>
     </aside>
-    <script>
-        $(function () {
-            $('#datepicker').datepicker({
 
-                inline: true,
-                showOtherMonths: true,
-                dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                altField: "#date",
-            });
-        });
-
-        $(document).ready(function () {
-            $("#datepicker").datepicker("show");
-
-        });
-    </script>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
@@ -112,7 +97,8 @@
 
     <!--icons-->
     <script src="./scripts/feather.min.js"></script>
-    <script>feather.replace({ height: "20", width: "20" });</script>
+    <script src="./scripts/datepicker.js"></script>
+
 </body>
 
 </html>

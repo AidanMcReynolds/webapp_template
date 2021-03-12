@@ -7,3 +7,9 @@
 .card {
     border: none;
 }
+.image-upload > input {
+    display: none;
+}
+.image-upload img {
+	cursor: pointer; /* "hand" cursor */
+}
