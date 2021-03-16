@@ -170,7 +170,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input type="text" placeholder="new name" value="First Last" pattern="[a-zA-Z]{8,20}" required="required">
+              <input type="text" placeholder="new name" value="First Last" pattern="[a-zA-Z0-9]{1,20}" required="required">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -191,8 +191,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input type="text" placeholder="new email" value="firstlast@example.com"
-                pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{10,20}" required="required">
+              <input type="email" placeholder="new email" value="firstlast@example.com" required="required">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

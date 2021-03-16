@@ -29,5 +29,5 @@ function taskRow(taskName){
   return r;
 }
 function taskAdd(){
-  return '<div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm"><i data-feather="plus"></i></button></div>'
+  return '<div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div>'
 }

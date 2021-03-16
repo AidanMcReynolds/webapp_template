@@ -30,6 +30,7 @@
        document.getElementById('loader').style.display = 'none';
      }
    },
+   credentialHelper: 'none',
    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
    signInFlow: 'popup',
    signInSuccessUrl: 'main.html',
