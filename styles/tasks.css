@@ -1,7 +1,7 @@
 #task-container {
   display: grid;
   grid-template-columns: 10% 80% 10%;
-  background-color: lightblue;
+  background-color: rgb(222, 242, 248);
   padding-top: 10pt;
   visibility: hidden;
 }
