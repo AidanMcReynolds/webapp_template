@@ -19,6 +19,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     cont.innerHTML = cont.innerHTML + taskAdd();
     feather.replace()
     cont.style.visibility = "visible";
+
+    //listen for submit click
+    document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
   });
 });
 function taskRow(taskName){
@@ -31,3 +34,41 @@ function taskRow(taskName){
 function taskAdd(){
   return '<div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div>'
 }
+
+function submitTaskDB(e){
+  e.preventDefault();
+
+  var task = getInputValue("task");
+  console.log(task);
+  console.log(new Date().getTime());
+
+  saveTask(task);
+}
+function getInputValue(id){
+  return document.getElementById(id).value;
+}
+function saveTask(name){
+  var taskRef = db.collection("tasks");
+
+  taskRef.add({
+    name: name,
+    deleted: false,
+    created: new Date().getTime()
+  });
+}
+
+function displayTasks(){
+  db.collection("tasks").get()
+  .then(function(snap){
+      snap.forEach(function(doc){
+          var n = doc.data().name;
+          console.log(n);
+          var delet = doc.data().deleted;
+          console.log(delet);
+          var createdTime = doc.data().created;
+          console.log(createdTime);
+          // document.getElementById(cityId).textContent = n;
+      })
+  })
+}
+displayTasks();
