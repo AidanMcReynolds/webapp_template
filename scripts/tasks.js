@@ -23,6 +23,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     //listen for submit click
     document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
     taskTable(tasks);
+
+    //displayTasks();
   });
 });
 function taskTable(tasks){
@@ -75,7 +77,8 @@ function saveTask(name){
   taskRef.add({
     name: name,
     deleted: false,
-    created: firebase.firestore.Timestamp.now()
+    created: firebase.firestore.Timestamp.now(),
+    completed: []
   });
 }
 
@@ -89,11 +92,12 @@ function displayTasks(){
           console.log(delet);
           var createdTime = doc.data().created;
           console.log(createdTime);
+          console.log(doc.data().completed)
           // document.getElementById(cityId).textContent = n;
       })
   })
 }
-displayTasks();
+
 //---Michael ------->
 function taskClick(id){
   if (id.checked){
