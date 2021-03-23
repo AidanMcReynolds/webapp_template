@@ -61,7 +61,7 @@ function taskRow(taskName, taskID) {
 function taskAdd() {
   return '<div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div>'
 }
-//------Michael------------------------------->
+
 function submitTaskDB(e) {
   e.preventDefault();
 
@@ -84,7 +84,7 @@ function saveTask(name) {
     completed: []
   });
 }
-
+//testing in JS console
 function displayTasks() {
   db.collection("users").doc(firebase.auth().currentUser.uid).collection("tasks").get()
   .then(function(snap){
@@ -102,7 +102,6 @@ function displayTasks() {
     })
 }
 
-//---Michael ------->
 function taskClick(id) {
   if (id.checked) {
     console.log("checked");
