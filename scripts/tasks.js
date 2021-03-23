@@ -27,7 +27,7 @@ function taskUpdate(user){
     document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
     taskTable(tasks);
 
-    //displayTasks();
+    displayTasks();
   });
 }
 function taskTable(tasks) {
@@ -65,11 +65,14 @@ function taskAdd() {
 function submitTaskDB(e) {
   e.preventDefault();
 
+  var user = firebase.auth().currentUser;
   var task = getInputValue("task");
   console.log(task);
   console.log(new Date().getTime());
 
   saveTask(task);
+  $('#exampleModalTask').modal('hide');
+  taskUpdate(user);
 }
 function getInputValue(id) {
   return document.getElementById(id).value;
