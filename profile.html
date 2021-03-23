@@ -49,7 +49,7 @@
         <li><a class="dropdown-item" href="#"><i data-feather="settings"></i> setting</a></li>
         <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
         <li>
-        <li><a class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
+        <li><a id="logOut" class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
         <hr class="dropdown-divider">
         </li>
         <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
@@ -68,7 +68,7 @@
               <img id="previewImag" src="./images/profile_random.jpeg" class="card-img-top rounded-circle mb-4"
                 alt="...">
             </label>
-            <input id="file-input" type="file" onchange="previewFile()">
+            <input id="file-input" type="file" onclick="previewFile()">
           </div>
           <div class="card-body text-center">
             <a href="#" class="btn btn-light">Edit profile</a>

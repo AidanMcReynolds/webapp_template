@@ -23,3 +23,15 @@ window.addEventListener("load", () => {
     console.log("blah");
   }
 });
+
+const logout = document.querySelector("#logOut");
+logout.addEventListener("click",(e)=>{
+  e.preventDefault();
+
+  firebase.auth().signOut().then(() => {
+    console.log("Sign-Out Successful!");
+  }).catch((error) => {
+    console.log("An error happened.");
+  });
+});
+
