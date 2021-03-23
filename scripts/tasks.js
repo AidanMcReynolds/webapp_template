@@ -77,12 +77,15 @@ function taskUndo(id){
 function checkboxUpdate(task) {
   today = firebase.firestore.Timestamp.now();
   dates = task.data().completed;
-  for (i = 0; i < dates.length; i++) {
-    if (today.toDate().toDateString() == dates[i].toDate().toDateString()) {
-      checkbox = document.getElementById("check_" + task.id);
-      checkbox.setAttribute("checked",true);
-      console.log(checkbox);
+  if (dates != null){
+    for (i = 0; i < dates.length; i++) {
+      if (today.toDate().toDateString() == dates[i].toDate().toDateString()) {
+        checkbox = document.getElementById("check_" + task.id);
+        checkbox.setAttribute("checked",true);
+        console.log(checkbox);
+      }
     }
   }
+
 }
 
