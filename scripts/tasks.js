@@ -75,7 +75,7 @@ function saveTask(name){
   taskRef.add({
     name: name,
     deleted: false,
-    created: new Date().getTime()
+    created: firebase.firestore.Timestamp.now()
   });
 }
 
