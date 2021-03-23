@@ -72,6 +72,7 @@ function submitTaskDB(e) {
 
   saveTask(task);
   $('#exampleModalTask').modal('hide');
+  document.getElementById("form-task").reset();
   taskUpdate(user);
 }
 function getInputValue(id) {
