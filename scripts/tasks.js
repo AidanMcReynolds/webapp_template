@@ -3,8 +3,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 function taskUpdate(user){
   cont = document.getElementById("task-container");
-  cont.innerHTML="";
-  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "!=", true).get().then((tasks) => {
+  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).orderBy('created').get().then((tasks) => {
     console.log(tasks.size);
     tasks.forEach((t) => {
       console.log(t.data().name);
