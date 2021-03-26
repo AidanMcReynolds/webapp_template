@@ -2,13 +2,14 @@ firebase.auth().onAuthStateChanged(function (user) {
   taskUpdate(user);
 });
 function taskUpdate(user){
+  cont = document.getElementById("task-container");
+  cont.innerHTML="";
   db.collection("users").doc(user.uid).collection("tasks").where("deleted", "!=", true).get().then((tasks) => {
     console.log(tasks.size);
     tasks.forEach((t) => {
       console.log(t.data().name);
     });
     // update the size of the container for the task list
-    cont = document.getElementById("task-container");
     let rows = ""
     for (i = 0; i <= tasks.size; i++) {
       rows = rows + "15vh "
@@ -52,14 +53,23 @@ function taskTable(tasks) {
   cont.style.visibility = "visible";
 }
 function taskRow(taskName, taskID) {
-  let r = "";
-  r = '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
+  let r = '<div class="task-row">';
+  r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
   r = r + '<div class="task-text">' + taskName + '</div>';
-  r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm"><i data-feather="trash-2"></i></button></div>'
+  r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDel(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
+  r = r + "</div>"
   return r;
 }
 function taskAdd() {
-  return '<div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div>'
+  return '<div class="task-row"><div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div></div>'
+}
+function taskDel(e){
+  let id = e.value;
+  let user = firebase.auth().currentUser;
+  db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
+    deleted: true
+  });
+  taskUpdate(user);
 }
 
 function submitTaskDB(e) {

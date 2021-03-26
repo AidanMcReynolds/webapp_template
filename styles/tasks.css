@@ -1,9 +1,12 @@
 #task-container {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
   background-color: rgb(222, 242, 248);
   padding-top: 10pt;
   visibility: hidden;
+}
+#task-container .task-row{
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
 }
 #task-container .task-check {
   grid-column: 1 / span 1;
@@ -14,4 +17,7 @@
 #task-container .task-del {
   grid-column: 3 / span 1;
   text-align: right;
+}
+.task-row:hover{
+  transform: scaleY(105%);
 }
