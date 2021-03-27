@@ -29,11 +29,11 @@ aside {
     padding: 10px;
 }
 
-.date-day {
+#date-day {
     font-size: 24pt;
 }
 
-.date-date {
+#date-date {
     font-size: 48pt;
 }
 
@@ -108,12 +108,13 @@ aside {
 }
 
 .ui-datepicker .ui-state-active {
-    background: #EEE;
+    background: #FFF;
+    color: rgb(218, 25, 192);
 }
 
 .ui-datepicker .ui-state-highlight {
-    background: #FFF;
-    color: rgb(218, 25, 192);
+    background: #EEE;
+
 }
 
 .ui-datepicker td.past {

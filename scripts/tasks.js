@@ -1,12 +1,13 @@
+
 firebase.auth().onAuthStateChanged(function (user) {
   taskUpdate(user);
 });
 function taskUpdate(user){
   cont = document.getElementById("task-container");
   db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).orderBy('created').get().then((tasks) => {
-    console.log(tasks.size);
+    //console.log(tasks.size);
     tasks.forEach((t) => {
-      console.log(t.data().name);
+      //console.log(t.data().name);
     });
     // update the size of the container for the task list
     let rows = ""
@@ -35,7 +36,10 @@ function taskTable(tasks) {
   cont = document.getElementById("task-container");
   cont.innerHTML = "";
   let rows = ""
-  for (i = 0; i <= tasks.size; i++) {
+  for (i = 0; i < tasks.size; i++) {
+    rows = rows + "40pt "
+  }
+  if (!datepicker){
     rows = rows + "40pt "
   }
   cont.style.gridTemplateRows = rows;
@@ -47,7 +51,9 @@ function taskTable(tasks) {
     checkboxUpdate(t);
   });
   //append the table with the add task button
-  cont.innerHTML = cont.innerHTML + taskAdd();
+  if (!datepicker){
+    cont.innerHTML = cont.innerHTML + taskAdd();
+  }
   feather.replace()
   cont.style.visibility = "visible";
 }
@@ -76,8 +82,8 @@ function submitTaskDB(e) {
 
   var user = firebase.auth().currentUser;
   var task = getInputValue("task");
-  console.log(task);
-  console.log(new Date().getTime());
+  //console.log(task);
+  //console.log(new Date().getTime());
 
   saveTask(task);
   $('#exampleModalTask').modal('hide');
@@ -103,13 +109,13 @@ function displayTasks() {
   .then(function(snap){
       snap.forEach(function(doc){
           var n = doc.data().name;
-          console.log(n);
+          //console.log(n);
           var delet = doc.data().deleted;
-          console.log(delet);
+          //console.log(delet);
           var createdTime = doc.data().created;
-          console.log(createdTime);
+          //console.log(createdTime);
           var cromplete = doc.data().completed;
-          console.log(cromplete);
+          //console.log(cromplete);
           // document.getElementById(cityId).textContent = n;
       })
     })
@@ -117,10 +123,10 @@ function displayTasks() {
 
 function taskClick(id) {
   if (id.checked) {
-    console.log("checked");
+   // console.log("checked");
     taskDo(id.value);
   } else {
-    console.log("unchecked");
+   // console.log("unchecked");
     taskUndo(id.value);
   }
 }
@@ -154,15 +160,17 @@ function taskUndo(id) {
     }
   });
 }
+var datepicker = false;
+var today = firebase.firestore.Timestamp.now().toDate();
 function checkboxUpdate(task) {
-  today = firebase.firestore.Timestamp.now();
+
   dates = task.data().completed;
   if (dates != null) {
     for (i = 0; i < dates.length; i++) {
-      if (today.toDate().toDateString() == dates[i].toDate().toDateString()) {
+      if (today.toDateString() == dates[i].toDate().toDateString()) {
         checkbox = document.getElementById("check_" + task.id);
         checkbox.setAttribute("checked", true);
-        console.log(checkbox);
+      //  console.log(checkbox);
       }
     }
   }

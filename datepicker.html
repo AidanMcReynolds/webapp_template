@@ -22,6 +22,7 @@
     <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
     <link href="./styles/datepicker.css" rel="stylesheet">
     <link href="./styles/blah.css" rel="stylesheet">
+    <link href="./styles/tasks.css" rel="stylesheet">
 </head>
 
 <body>
@@ -66,15 +67,37 @@
     <aside>
         <div id="calendar">
             <div class="date-block ui-datepicker-trigger">
-                <div class="date-day">Tuesday</div>
-                <div class="date-date">8</div>
-                <span class="date-month">April</span>,
-                <span class="date-year">2014</span>
+                <div id="date-day">Tuesday</div>
+                <div id="date-date">8</div>
+                <span id="date-month">April</span>,
+                <span id="date-year">2014</span>
             </div>
             <div id="datepicker"></div>
-            <input id="date" type="text">
+            <input id="date" type="text" style="visibility: hidden;">
         </div>
     </aside>
+    <div class="container-sm" id="task-container">
+    </div>
+    <div class="modal fade" id="exampleModalTask" tabindex="-1" aria-labelledby="exModalTask" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="form-task" action="#">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Task</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input id="task" type="text" placeholder="new task" required="required">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
 
 
     <!----------------------------------------------->
@@ -92,7 +115,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="./scripts/config.js"></script>
     <script src="./scripts/auth.js"></script>
+    <script src="./scripts/tasks.js"></script>
 
     <!--icons-->
     <script src="./scripts/feather.min.js"></script>
