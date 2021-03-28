@@ -64,8 +64,7 @@
         <div class="card" style="width: 18rem;">
           <div class="image-upload">
             <label for="file-input">
-              <img id="previewImag" src="./images/profile_random.jpeg" class="card-img-top rounded-circle mb-4"
-                alt="...">
+              <img id="previewImag" class="card-img-top rounded-circle mb-4" alt="..."> //src="./images/profile_random.jpeg"
             </label>
             <input id="file-input" type="file" onchange="previewFile()">
           </div>
@@ -104,8 +103,8 @@
                   </label>
                 </div>
                 <div class="text-secondary mb-1">
-                  <label>
-                    <h5>First Last</h5>
+                  <label id ="displayNameText">
+                    <!-- <h5>First Last</h5> -->
                   </label>
                 </div>
               </div>
@@ -123,8 +122,8 @@
                   </label>
                 </div>
                 <div class="text-secondary mb-1">
-                  <label>
-                    <h5>firstlast@example.com</h5>
+                  <label id="emailText">
+                    <!-- <h5>firstlast@example.com</h5> -->
                   </label>
                 </div>
               </div>
@@ -169,7 +168,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input type="text" placeholder="new name" value="First Last" pattern="[a-zA-Z0-9]{1,20}" required="required">
+              <input id="modalInputName" type="text" placeholder="new name" pattern="[a-zA-Z0-9]{1,20}" required="required">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -190,7 +189,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input type="email" placeholder="new email" value="firstlast@example.com" required="required">
+              <input id="modalInputEmail" type="email" placeholder="new email" required="required">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
