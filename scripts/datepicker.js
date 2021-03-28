@@ -18,6 +18,7 @@ $(document).ready(function () {
 
 function changeDate(date) {
   console.log(date);
+  date.setHours(1);
   today = date;
   updateDateBlock()
   let user = firebase.auth().currentUser;

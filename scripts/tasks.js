@@ -91,7 +91,7 @@ function saveTask(name) {
 }
 function taskToday(){
   let now = new Date(Date.now())
-  let d = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0,0)
+  let d = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,now.getHours(),now.getMinutes(),now.getSeconds())
   return firebase.firestore.Timestamp.fromDate(d);
 }
 //testing in JS console
