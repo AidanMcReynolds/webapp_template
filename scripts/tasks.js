@@ -4,37 +4,20 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 function taskUpdate(user){
   cont = document.getElementById("task-container");
-  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).orderBy('created').get().then((tasks) => {
+  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).where("created","<=",today).orderBy('created').get().then((tasks) => {
     //console.log(tasks.size);
-    tasks.forEach((t) => {
-      //console.log(t.data().name);
-    });
-    // update the size of the container for the task list
-    let rows = ""
-    for (i = 0; i <= tasks.size; i++) {
-      rows = rows + "15vh "
-    }
-    cont.style.gridTemplateRows = rows;
-    //append the table with the user's tasks
-    tasks.forEach((t) => {
-      cont.innerHTML = cont.innerHTML + taskRow(t.data().name);
-    });
-    //append the table with the add task button
-    cont.innerHTML = cont.innerHTML + taskAdd();
-    feather.replace()
-    cont.style.visibility = "visible";
+    console.log(tasks);
 
-    //listen for submit click
-    document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
     taskTable(tasks);
 
-    displayTasks();
+    //displayTasks();
   });
 }
 function taskTable(tasks) {
   // update the size of the container for the task list
   cont = document.getElementById("task-container");
   cont.innerHTML = "";
+      // update the size of the container for the task list
   let rows = ""
   for (i = 0; i < tasks.size; i++) {
     rows = rows + "40pt "
@@ -53,7 +36,10 @@ function taskTable(tasks) {
   //append the table with the add task button
   if (!datepicker){
     cont.innerHTML = cont.innerHTML + taskAdd();
+  } else if (tasks.size < 1) {
+    cont.innerHTML = "<i>No tasks to display.</i>"
   }
+  document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
   feather.replace()
   cont.style.visibility = "visible";
 }
@@ -99,9 +85,14 @@ function saveTask(name) {
   taskRef.add({
     name: name,
     deleted: false,
-    created: firebase.firestore.Timestamp.now(),
+    created: taskToday(),
     completed: []
   });
+}
+function taskToday(){
+  let now = new Date(Date.now())
+  let d = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,0,0,0)
+  return firebase.firestore.Timestamp.fromDate(d);
 }
 //testing in JS console
 function displayTasks() {
