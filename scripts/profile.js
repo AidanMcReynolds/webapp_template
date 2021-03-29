@@ -1,3 +1,29 @@
+firebase.auth().onAuthStateChanged(function (user) {
+  updateProfilePage(user);
+});
+
+function updateProfilePage(user){
+  console.log(user.photoURL);
+  // user.photoUrl = "./images/profile_random.jpeg";
+  // document.getElementById("previewImag").innerHTML = user.photoUrl;
+  setInputValue("displayNameText", "<h5>" + user.displayName + "</h5>");
+  setInputValue("emailText", "<h5>" + user.email + "</h5>");
+
+  document.getElementById("modalInputName").setAttribute("value", user.displayName);
+  document.getElementById("modalInputEmail").setAttribute("value", user.email);
+
+  document.getElementById("exampleModalName").addEventListener("submit", submitDisplayNameDB);
+  document.getElementById("exampleModalEmail").addEventListener("submit", submitTaskDB);
+  feather.replace();
+}
+
+function setInputValue(name, content) {
+  document.getElementById(name).innerHTML = content;
+}
+
+function getInputValue(id) {
+  return document.getElementById(id).value;
+}
 
 //popover enabled
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
@@ -20,53 +46,56 @@ function previewFile() {
   }
 }
 
-firebase.auth().onAuthStateChanged(function (user) {
-  console.log(user.photoURL);
-  // user.photoUrl = "./images/profile_random.jpeg";
-  // document.getElementById("previewImag").innerHTML = user.photoUrl;
-  setInputValue("displayNameText", "<h5>" + user.displayName + "</h5>");
-  setInputValue("emailText", "<h5>" + user.email + "</h5>");
+function submitDisplayNameDB(e) {
+  e.preventDefault();
 
-  document.getElementById("modalInputName").setAttribute("value", user.displayName);
-  document.getElementById("modalInputEmail").setAttribute("value", user.email);
+  var newDisplayName = getInputValue("modalInputName");
+  changeDisplayName(newDisplayName);
+}
 
-  document.getElementById("exampleModalEmail").addEventListener("submit", submitTaskDB);
-  feather.replace()
-});
+function changeDisplayName(name){
+  var user = firebase.auth().currentUser;
+
+  console.log(db.collection("users").doc(user.uid));
+  user.updateProfile({
+    displayName: name
+  }).then(function () {
+    db.collection("users").doc(user.uid).update({
+      name: user.displayName
+    }).then(function () {
+      console.log(name);
+    }).catch(function (error) {
+      console.log("Error changing display name: " + error);
+    });
+    
+    $('#exampleModalName').modal('hide');
+    updateProfilePage(user);
+  });
+}
 
 function submitTaskDB(e) {
   e.preventDefault();
 
-  var user = firebase.auth().currentUser;
-  var newEmail = getInputValue("task");
-  //console.log(task);
-  //console.log(new Date().getTime());
-
+  var newEmail = getInputValue("modalInputEmail");
   changeEmail(newEmail);
-  $('#exampleModalEmail').modal('hide');
-  document.getElementById("form-task").reset();
-  taskUpdate(user);
 }
 
-function setInputValue(name, content){
-  document.getElementById(name).innerHTML = content;
-}
-
-function getInputValue(id) {
-  return document.getElementById(id).value;
-}
 function changeEmail(name) {
+  var user = firebase.auth().currentUser;
 
-  firebase.auth().currentUser.updateEmail(name).then(function () {
+  user.updateEmail(name).then(function () {
     // Update successful.
     console.log(name);
     db.collection("users").doc(user.uid).update({         //write to firestore                 //"users" collection
       email: user.email                          //with authenticated user's ID (user.uid)
     }).then(function () {
       console.log("changed user email");
-      window.location.assign("profile.html");       //re-direct to main.html after signup
+      //window.location.assign("profile.html");       //re-direct to main.html after signup
     }).catch(function (error) {
-      console.log("Error adding new user: " + error);
+      console.log("Error changing email: " + error);
     });
+
+    $('#exampleModalEmail').modal('hide');
+    updateProfilePage(user);
   });
 }
