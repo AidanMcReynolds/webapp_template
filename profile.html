@@ -171,7 +171,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input id="modalInputName" type="text" placeholder="new name" pattern="[a-zA-Z0-9]{1,20}" required="required">
+              <input id="modalInputName" type="text" placeholder="new display name" pattern="[a-zA-Z0-9]{1,20}" required="required">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -212,10 +212,11 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Password</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                pattern="[a-zA-Z0-9]{10,20}" required="required"></button>
+                pattern="[a-zA-Z0-9]{5,20}" required="required"></button>
             </div>
             <div class="modal-body">
-              <input type="password" placeholder="password">
+              <input id="modalInputCurrPassword" type="password" placeholder="current password">
+              <input id="modalInputPassword" type="password" placeholder="new password">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
