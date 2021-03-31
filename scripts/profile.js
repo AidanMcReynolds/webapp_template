@@ -62,12 +62,20 @@ function submitPasswordDB(e) {
   reAuthenticate(currPassword).then(() => {
     var user = firebase.auth().currentUser;
     var newPassword = getInputValue("modalInputPassword");
+    var confirmPassword = getInputValue("modalInputPasswordConfirm");
+    
+    if (newPassword !== confirmPassword){
+      alert("New password and confirm new password not same");
+    } else {
+      user.updatePassword(newPassword).then(() => {
+        alert("Password was changed");
+      }).catch((error) => {
+        alert(error.message);
+      });
+    }
 
-    user.updatePassword(newPassword).then(() => {
-      alert("Password was changed");
-    }).catch((error) => {
-      alert(error.message);
-    });
+  }).catch((e) => {
+    alert(e.message);
   });
 }
 
@@ -127,6 +135,5 @@ function changeEmail(name) {
     alert(error.message);
   });
   $('#exampleModalEmail').modal('hide');
-  updateProfilePage(user);
 }
 
