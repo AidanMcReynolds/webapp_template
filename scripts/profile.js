@@ -101,8 +101,14 @@ function submitEmailDB(e) {
   e.preventDefault();
 
   var newEmail = getInputValue("modalInputEmail");
-  changeEmail(newEmail);
-  setInputValue("displayNameText", "<h5>" + newEmail + "</h5>");
+
+  var currPassword = getInputValue("modalInputCurrPasswordE");
+  reAuthenticate(currPassword).then(() => {
+    changeEmail(newEmail);
+  }).catch((e) => {
+    alert(e.message);
+  });
+  setInputValue("emailText", "<h5>" + newEmail + "</h5>");
 }
 
 function changeEmail(name) {
@@ -132,4 +138,3 @@ function unUsed() {
 
 
 }
-
