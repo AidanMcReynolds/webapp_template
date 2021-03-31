@@ -130,11 +130,3 @@ function changeEmail(name) {
   updateProfilePage(user);
 }
 
-function unUsed() {
-  var user = firebase.auth().currentUser;
-  var credential;
-
-  // Prompt the user to re-provide their sign-in credentials
-
-
-}
