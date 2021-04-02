@@ -7,9 +7,23 @@
 .card {
     border: none;
 }
+.container{
+  background-color: white;
+  padding: 5%;
+  border-left: solid 1pt #e9ecef;
+  border-right: solid 1pt #e9ecef;
+}
 .image-upload > input {
     display: none;
 }
 .image-upload img {
 	cursor: pointer; /* "hand" cursor */
+}
+body{
+  background-image: url("../images/background25.png");
+  background-size: cover;
+}
+.nav{
+  border-bottom: solid 1pt #e9ecef;
+  background-color: white;
 }
