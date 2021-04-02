@@ -9,7 +9,7 @@ function taskUpdate(user){
     console.log(tasks);
 
     taskTable(tasks);
-
+    taskStrikethrough(tasks)
     //displayTasks();
   });
 }
@@ -46,10 +46,24 @@ function taskTable(tasks) {
 function taskRow(taskName, taskID) {
   let r = '<div class="task-row">';
   r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
-  r = r + '<div class="task-text">' + taskName + '</div>';
+  r = r + '<div class="task-text" id="text_' + taskID + '">' + taskName + '</div>';
   r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDel(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
   r = r + "</div>"
   return r;
+}
+function taskStrikethrough(tasks){
+  tasks.forEach((t) => {
+    dates = t.data().completed;
+    if (dates != null) {
+    for (i = 0; i < dates.length; i++) {
+      if (today.toDateString() == dates[i].toDate().toDateString()) {
+        elem = document.getElementById("text_" + t.id);
+        elem.innerHTML = "<s>"+elem.innerHTML+"</s>";
+      //  console.log(checkbox);
+      }
+    }
+  }
+  })
 }
 function taskAdd() {
   return '<div class="task-row"><div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div></div>'
@@ -122,31 +136,31 @@ function taskClick(id) {
   }
 }
 function taskDo(id) {
-  today = firebase.firestore.Timestamp.now();
+  let td = firebase.firestore.Timestamp.now();
   user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid).collection("tasks").doc(id).get().then((task) => {
     dates = task.data().completed;
     for (i = 0; i < dates.length; i++) {
-      if (today.toDate().toDateString() == dates[i].toDate().toDateString()) {
+      if (td.toDate().toDateString() == dates[i].toDate().toDateString()) {
         return;
       }
     }
     db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
-      completed: firebase.firestore.FieldValue.arrayUnion(today)
-    });
+      completed: firebase.firestore.FieldValue.arrayUnion(td)
+    }).then(taskUpdate(user));
   });
 
 }
 function taskUndo(id) {
-  today = firebase.firestore.Timestamp.now();
+  let td = firebase.firestore.Timestamp.now();
   user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid).collection("tasks").doc(id).get().then((task) => {
     dates = task.data().completed;
     for (i = 0; i < dates.length; i++) {
-      if (today.toDate().toDateString() == dates[i].toDate().toDateString()) {
+      if (td.toDate().toDateString() == dates[i].toDate().toDateString()) {
         db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
           completed: firebase.firestore.FieldValue.arrayRemove(dates[i])
-        });
+        }).then(taskUpdate(user));
       }
     }
   });

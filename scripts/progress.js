@@ -23,31 +23,26 @@ function progressUpdate(user) {
     });
 }
 
+//returns sum of all times all tasks completed divided by the total number of times tasks could have been completed
 function progressPercent(tasks) {
-    progressTaskPercent(tasks.docs[0])
-    console.log(progressTaskPercent(tasks.docs[0]))
-
-    let g = 1;
+    let days = 0;
+    let n = 0;
     tasks.forEach((t) => {
-        g = progressTaskPercent(t) * g;
+        days = days + progressDays(t);
+        n = n + t.data().completed.length;
     });
-    g = Math.pow(g, 1 / tasks.size)
-    return g;
+    return n/days;
 }
 
-//Adding total # of days completed / today - date created = total # of days since it has been created
-function progressTaskPercent(task) {
-    let t = task.data().completed.length;
-
+//returns number of days since the task was completed
+function progressDays(task) {
     var d = firebase.firestore.Timestamp.now()
     var c = task.data().created;
     var n = d.seconds - c.seconds;
     n = n / (60 * 60 * 24);
     n = Math.floor(n)
-
     n = n + 1;
-    console.log(t / n);
-    return t / n;
+    return n;
 }
 
 function progressDisplay(variable) {

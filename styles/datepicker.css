@@ -1,8 +1,14 @@
-aside {
-
-    width: 30%;
+#cal2 {
     min-width: 150px;
     max-width: 300px;
+    padding: 0;
+    border:0;
+    margin-bottom: 10%;
+}
+
+#dp {
+  width: 100%;
+
 }
 
 .ui-datepicker-header {
@@ -17,12 +23,12 @@ aside {
     text-align: center;
     font-family: "Helvetica";
     color: #666;
-    background: #FAFAFA;
+    background: #FFFFFF;
 }
 
 .date-block {
     text-align: center;
-    background: rgb(89, 223, 71);
+    background: #0d6efd;/*rgb(89, 223, 71);*/
     font-family: "Helvetica";
     color: #EEE;
     font-size: 18pt;
@@ -86,7 +92,7 @@ aside {
     width: 100%;
     margin-top: 10px;
     text-align: center;
-    background: #FAFAFA;
+    background: #FFFFFF;
     font-family: "Helvetica";
 }
 
@@ -124,4 +130,10 @@ aside {
 .ui-datepicker a:hover {
     background: rgb(89, 223, 71);
     color: rgb(255, 255, 255);
+}
+@media (min-width: 1000px){
+  #dp{
+    display: grid;
+    grid-template-columns: 33.3% 66.7%;
+  }
 }

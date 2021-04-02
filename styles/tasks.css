@@ -1,8 +1,10 @@
 #task-container {
   display: grid;
-  background-color: rgb(222, 242, 248);
-  padding-top: 10pt;
+  /*background-color: rgb(222, 242, 248);*/
+  /*padding-top: 10pt;*/
   visibility: hidden;
+  width: 80%;
+  
 }
 #task-container .task-row{
   display: grid;
