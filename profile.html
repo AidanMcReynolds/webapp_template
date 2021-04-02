@@ -67,7 +67,8 @@
         <div class="card" style="width: 18rem;">
           <div class="image-upload">
             <label for="file-input">
-              <img id="previewImag" class="card-img-top rounded-circle mb-4" alt="..."> //src="./images/profile_random.jpeg"
+              <img id="previewImag" class="card-img-top rounded-circle mb-4" alt="...">
+              //src="./images/profile_random.jpeg"
             </label>
             <input id="file-input" type="file" onchange="previewFile()">
           </div>
@@ -106,7 +107,7 @@
                   </label>
                 </div>
                 <div class="text-secondary mb-1">
-                  <label id ="displayNameText">
+                  <label id="displayNameText">
                     <!-- <h5>First Last</h5> -->
                   </label>
                 </div>
@@ -171,7 +172,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <input id="modalInputName" type="text" placeholder="new name" pattern="[a-zA-Z0-9]{1,20}" required="required">
+              <div id="newDisplayName">
+              <label>New display name</label><br/>
+              <input id="modalInputName" type="text" placeholder="new display name" pattern="[a-zA-Z0-9]{1,20}"
+                required="required">
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -192,7 +197,14 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              <div id="curPW">
+              <label>current password</label><br />
+              <input id="modalInputCurrPasswordE" type="password" placeholder="current password"> <br />
+            </div>
+            <div id="newEmail">
+              <label>new email</label><br />
               <input id="modalInputEmail" type="email" placeholder="new email" required="required">
+            </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -212,10 +224,21 @@
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Password</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                pattern="[a-zA-Z0-9]{10,20}" required="required"></button>
+                pattern="[a-zA-Z0-9]{5,20}" required="required"></button>
             </div>
             <div class="modal-body">
-              <input type="password" placeholder="password">
+              <div id="currPW">
+                <label>current password</label><br />
+                <input id="modalInputCurrPassword" type="password" placeholder="current password">
+              </div>
+              <div id="newPW">
+                <label>new password</label><br />
+                <input id="modalInputPassword" type="password" placeholder="new password">
+              </div>
+              <div id="confirmNewPW">
+                <label>confirm new password</label><br/>
+                <input id="modalInputPasswordConfirm" type="password" placeholder="confirm new password">
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

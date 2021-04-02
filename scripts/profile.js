@@ -1,9 +1,10 @@
-firebase.auth().onAuthStateChanged(function (user) {
+firebase.auth().onAuthStateChanged((user) => {
   updateProfilePage(user);
 });
 
-function updateProfilePage(user){
+function updateProfilePage(user) {
   console.log(user.photoURL);
+
   // user.photoUrl = "./images/profile_random.jpeg";
   // document.getElementById("previewImag").innerHTML = user.photoUrl;
   setInputValue("displayNameText", "<h5>" + user.displayName + "</h5>");
@@ -13,7 +14,8 @@ function updateProfilePage(user){
   document.getElementById("modalInputEmail").setAttribute("value", user.email);
 
   document.getElementById("exampleModalName").addEventListener("submit", submitDisplayNameDB);
-  document.getElementById("exampleModalEmail").addEventListener("submit", submitTaskDB);
+  document.getElementById("exampleModalEmail").addEventListener("submit", submitEmailDB);
+  document.getElementById("exampleModalPassword").addEventListener("submit", submitPasswordDB);
   feather.replace();
 }
 
@@ -27,8 +29,8 @@ function getInputValue(id) {
 
 //popover enabled
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
+var popoverList = popoverTriggerList.map((popoverTriggerEl) => {
+  return new bootstrap.Popover(popoverTriggerEl);
 });
 
 //preview replace image
@@ -37,7 +39,7 @@ function previewFile() {
   var file = document.querySelector("input[type=file]").files[0];
   var reader = new FileReader();
 
-  reader.addEventListener("load", function () {
+  reader.addEventListener("load", () => {
     fileImg.src = reader.result;
   }, false);
 
@@ -46,56 +48,92 @@ function previewFile() {
   }
 }
 
+function reAuthenticate(currentPassword) {
+  var user = firebase.auth().currentUser;
+  var cred = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
+
+  return user.reauthenticateWithCredential(cred);
+}
+
+function submitPasswordDB(e) {
+  e.preventDefault();
+
+  var currPassword = getInputValue("modalInputCurrPassword");
+  reAuthenticate(currPassword).then(() => {
+    var user = firebase.auth().currentUser;
+    var newPassword = getInputValue("modalInputPassword");
+    var confirmPassword = getInputValue("modalInputPasswordConfirm");
+    
+    if (newPassword !== confirmPassword){
+      alert("New password and confirm new password not same");
+    } else {
+      user.updatePassword(newPassword).then(() => {
+        alert("Password was changed");
+      }).catch((error) => {
+        alert(error.message);
+      });
+    }
+
+  }).catch((e) => {
+    alert(e.message);
+  });
+}
+
 function submitDisplayNameDB(e) {
   e.preventDefault();
 
   var newDisplayName = getInputValue("modalInputName");
   changeDisplayName(newDisplayName);
+  setInputValue("displayNameText", "<h5>" + newDisplayName + "</h5>");
 }
 
-function changeDisplayName(name){
+function changeDisplayName(name) {
   var user = firebase.auth().currentUser;
 
   console.log(db.collection("users").doc(user.uid));
   user.updateProfile({
     displayName: name
-  }).then(function () {
+  }).then(() => {
     db.collection("users").doc(user.uid).update({
       name: user.displayName
-    }).then(function () {
-      console.log(name);
-    }).catch(function (error) {
-      console.log("Error changing display name: " + error);
     });
-    
-    $('#exampleModalName').modal('hide');
-    updateProfilePage(user);
+  }).then(() => {
+    console.log(name);
+  }).catch(error => {
+    alert(error.message);
   });
+  $('#exampleModalName').modal('hide');
 }
 
-function submitTaskDB(e) {
+function submitEmailDB(e) {
   e.preventDefault();
 
   var newEmail = getInputValue("modalInputEmail");
-  changeEmail(newEmail);
+
+  var currPassword = getInputValue("modalInputCurrPasswordE");
+  reAuthenticate(currPassword).then(() => {
+    changeEmail(newEmail);
+  }).catch((e) => {
+    alert(e.message);
+  });
+  setInputValue("emailText", "<h5>" + newEmail + "</h5>");
 }
 
 function changeEmail(name) {
   var user = firebase.auth().currentUser;
 
-  user.updateEmail(name).then(function () {
+  user.updateEmail(name).then(() => {
     // Update successful.
     console.log(name);
     db.collection("users").doc(user.uid).update({         //write to firestore                 //"users" collection
       email: user.email                          //with authenticated user's ID (user.uid)
-    }).then(function () {
-      console.log("changed user email");
-      //window.location.assign("profile.html");       //re-direct to main.html after signup
-    }).catch(function (error) {
-      console.log("Error changing email: " + error);
-    });
-
-    $('#exampleModalEmail').modal('hide');
-    updateProfilePage(user);
+    })
+  }).then(() => {
+    alert("Email was changed");
+    console.log("changed user email in DB");
+  }).catch(error => {
+    alert(error.message);
   });
+  $('#exampleModalEmail').modal('hide');
 }
+
