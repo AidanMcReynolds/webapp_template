@@ -1,14 +1,14 @@
 .right-s-nav {
-    color: black;/* default is dark-blue*/
+    color: black;
 }
 .right-s-nav:hover {
-    color: grey;/*default is blue*/
+    color: grey;
 }
 .card {
     border: none;
 }
 .container{
-  background-color: white;
+  background-color: #fafafa;
   padding: 5%;
   border-left: solid 1pt #e9ecef;
   border-right: solid 1pt #e9ecef;
@@ -20,8 +20,11 @@
 	cursor: pointer; /* "hand" cursor */
 }
 body{
+
   background-image: url("../images/background25.png");
   background-size: cover;
+  background-attachment: fixed;
+
 }
 .nav{
   border-bottom: solid 1pt #e9ecef;

@@ -4,6 +4,7 @@
   /*padding-top: 10pt;*/
   visibility: hidden;
   width: 80%;
+  min-width: 600px;
   
 }
 #task-container .task-row{
@@ -22,4 +23,10 @@
 }
 .task-row:hover{
   transform: scaleY(105%);
+}
+@media(max-width:600px){
+  #task-container{
+    width: 100%;
+    min-width: 100%;
+  }
 }
