@@ -77,6 +77,7 @@ function submitPasswordDB(e) {
   }).catch((e) => {
     alert(e.message);
   });
+  $('#exampleModalPassword').modal('hide');
 }
 
 function submitDisplayNameDB(e) {
