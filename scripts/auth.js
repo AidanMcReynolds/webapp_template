@@ -1,37 +1,55 @@
-
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     console.log("hello " + user.email)
   } else {
     window.location.pathname = "/index.html"
   }
- 
+
 });
 firebase.auth().onAuthStateChanged(function (user) {
-  db.collection("users").doc(user.uid).get().then(function(u) {
+  db.collection("users").doc(user.uid).get().then(function (u) {
     if (u.exists) {
- //     console.log("hello " + u.data().name);
+      //     console.log("hello " + u.data().name);
     }
   });
 });
 
 window.addEventListener("load", () => {
   var user = firebase.auth().currentUser;
-  if (user != null){
+  if (user != null) {
     console.log(user.uid);
   } else {
-  //  console.log("blah");
+    //  console.log("blah");
   }
 });
 
 const logout = document.querySelector("#logOut");
-logout.addEventListener("click",(e)=>{
+logout.addEventListener("click", (e) => {
   e.preventDefault();
 
   firebase.auth().signOut().then(() => {
-   // console.log("Sign-Out Successful!");
+    // console.log("Sign-Out Successful!");
   }).catch((error) => {
     console.log("An error happened.");
   });
 });
 
+
+function sayHello() {
+  firebase.auth().onAuthStateChanged(function (somebody) {
+      if (somebody) {
+          //console.log(somebody.uid);
+          db.collection("users")
+              .doc(somebody.uid)
+              .get() //READ !!!
+              .then(function (doc) {
+                  //console.log(doc.data().name);
+                  var n = doc.data().name;
+                  $("#name-goes-here").text(n);
+                  // get other things and do other things for this person
+              })
+      }
+  })
+
+}
+sayHello();
