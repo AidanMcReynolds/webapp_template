@@ -45,7 +45,7 @@ function taskRow(taskName, taskID) {
   let r = '<div class="task-row">';
   // r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
   r = r + '<div class="task-text" id="text_' + taskID + '">' + taskName + '</div>';
-  r = r + '<div class="task-unDel"><button type="button" class="btn btn-outline-secondary border-0 btn-sm" onclick="taskUnDel(this)" value="' + taskID + '"><i data-feather="rotate-ccw"></i></button></div>';  r = r + "</div>"
+  r = r + '<div class="task-unDel"><button type="button" class="btn btn-outline-secondary btn-sm" onclick="taskUnDel(this)" value="' + taskID + '"><i data-feather="rotate-ccw"></i></button></div>';  r = r + "</div>"
   return r;
 }
 
