@@ -21,6 +21,10 @@
   grid-column: 3 / span 1;
   text-align: right;
 }
+.task-delete-all {
+  grid-column: 1 / span 2;
+}
+
 .task-row:hover{
   transform: scaleY(105%);
 }
