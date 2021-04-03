@@ -40,7 +40,7 @@ function taskTable(tasks) {
   } else if (tasks.size < 1) {
     cont.innerHTML = "<i>No tasks to display.</i>"
   }
-  document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
+
   feather.replace()
   cont.style.visibility = "visible";
 }
@@ -49,8 +49,9 @@ function taskTable(tasks) {
 function taskRow(taskName, taskID) {
   let r = '<div class="task-row">';
   // r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
+  r = r + '<div class="task-unDel"><button type="button" class="btn btn-outline-secondary border-0 btn-sm" onclick="taskUnDel(this)" value="' + taskID + '"><i data-feather="rotate-ccw"></i></button></div>'
   r = r + '<div class="task-text" id="text_' + taskID + '">' + taskName + '</div>';
-  r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDel(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
+  r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDelPerm(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
   r = r + "</div>"
   return r;
 }
@@ -73,44 +74,34 @@ function taskStrikethrough(tasks){
 
 //html code representing the add button 
 function deleteAllTask() {
-  return '<div class="task-row"><div class="task-delete-all"><button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="trash-2"></i> Delete All </button></div></div>'
+  return '<div class="task-row"><div class="task-delete-all"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDelAll(this)"><i data-feather="trash-2"></i> Delete All </button></div></div>'
 }
 
 //deletes tasks when user clicks "trash" button
-function taskDel(e){
+function taskDelPerm(e){
+  if(confirm("Permanent Delete")){
+    //check if field exist, if yes -> delete
+    db.collection("users").doc(user.uid).collection("tasks").
+    
+    //after checking all fields delete doc() task
+
+    let id = e.value;
+    let user = firebase.auth().currentUser;
+    db.collection("users").doc(user.uid).collection("tasks").doc(id).()({
+      deleted: true
+    });
+    taskUpdate(user);
+  }
+}
+
+//deletes tasks when user clicks "trash" button
+function taskUnDel(e){
   let id = e.value;
   let user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
-    deleted: true
+    deleted: false
   });
   taskUpdate(user);
-}
-
-//micheal 
-function submitTaskDB(e) {
-  e.preventDefault();
-  var user = firebase.auth().currentUser;
-  var task = getInputValue("task");
-  saveTask(task);
-  $('#exampleModalTask').modal('hide');
-  document.getElementById("form-task").reset();
-  taskUpdate(user);
-}
-
-//micheal
-function getInputValue(id) {
-  return document.getElementById(id).value;
-}
-
-//micheal
-function saveTask(name) {
-  var taskRef = db.collection("users").doc(firebase.auth().currentUser.uid).collection("tasks");
-  taskRef.add({
-    name: name,
-    deleted: false,
-    created: taskToday(),
-    completed: []
-  });
 }
 
 //returns today's date as a firebase timestamp 
