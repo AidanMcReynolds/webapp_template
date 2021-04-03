@@ -14,7 +14,7 @@
 
   <!--JQuery------------------------------------------------------------------>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+ 
   <!-- Optional styles and scripts of your own -->
   <!--our custom stylesheet-->
   <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
@@ -65,14 +65,9 @@
     </div>
   </ul>
   <!-- Navigation Bar -->
-  <div class="box">
-    <h1 class="display-4"> Hello, <span id="name-goes-here"></span> </h1>
-    <h2 class="display-5">You're so close to finishing your tasks!</h2>
-  </div>
 
   <div class="container" id="task-container">
   </div>
-
 
 
   <div class="modal fade" id="exampleModalTask" tabindex="-1" aria-labelledby="exModalTask" aria-hidden="true">
@@ -84,7 +79,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <input id="task" type="text" placeholder="new task" maxlength="26" required="required">
+            <input id="task" type="text" placeholder="new task" maxlength = "26" required="required">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -99,8 +94,8 @@
   <!-- JS: Boostrap, Firebase, API related    -->
   <!----------------------------------------------->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-  </script>
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
 
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
@@ -111,8 +106,8 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
   <script src="./scripts/config.js"></script>
   <script src="./scripts/auth.js"></script>
-  <script src="./scripts/tasks.js"></script>
-  <scripts src="./scripts/main.js"></scripts>
+  <script src="./scripts/trash.js"></script>
+  
   <!--icons-->
   <script src="./scripts/feather.min.js"></script>
 </body>

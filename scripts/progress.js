@@ -1,15 +1,4 @@
-// Progress
-// Page loads to the progress page
-//  Need the user-id
-// The event in js - user has logged in 
-//  Need all of the tasks data from the user - user collection -> task collection
-// Need to convert data from list of tasks into %
-//  Display % in progress bar onto page
-//  (last step) - progress bars show user progress
-
-
-// .orderBy('created')
-//  Need the user-id // The event in js - user has logged in 
+//updates the progress bar when authentication in complete
 firebase.auth().onAuthStateChanged(function (user) {
     progressUpdate(user);
 });
@@ -45,6 +34,7 @@ function progressDays(task) {
     return n;
 }
 
+//updates the progress bar
 function progressDisplay(variable) {
     let x = document.getElementById("progress1");
     x.style.width = " " + (variable * 100) + "%";

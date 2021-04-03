@@ -3,7 +3,8 @@
     max-width: 300px;
     padding: 0;
     border:0;
-    margin-bottom: 10%;
+    /*margin-bottom: 10%;*/
+
 }
 
 #dp {
@@ -56,6 +57,8 @@
     position: relative;
     color: transparent !important;
 }
+
+
 
 .ui-datepicker-prev {
     float: left;
@@ -114,8 +117,8 @@
 }
 
 .ui-datepicker .ui-state-active {
-    background: #FFF;
-    color: rgb(218, 25, 192);
+    background: #0d6efd !important;
+    color: white;/*rgb(218, 25, 192);*/
 }
 
 .ui-datepicker .ui-state-highlight {
@@ -135,5 +138,28 @@
   #dp{
     display: grid;
     grid-template-columns: 33.3% 66.7%;
+  }
+}  
+@media (max-width: 999px){
+  #calendar{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  #cal2{
+    max-width: 600px;
+    border-top: solid 1pt #e9ecef;
+    border-bottom: solid 1pt #e9ecef;
+  }
+  #task-container{
+    width: 100%;
+    max-width: 600px;
+  }
+
+
+
+}
+@media (max-width:600px) {
+  .nav {
+    margin-bottom: 0 !important;
   }
 }

@@ -4,6 +4,7 @@
   /*padding-top: 10pt;*/
   visibility: hidden;
   width: 80%;
+  min-width: 600px;
   
 }
 #task-container .task-row{
@@ -20,6 +21,16 @@
   grid-column: 3 / span 1;
   text-align: right;
 }
+.task-delete-all {
+  grid-column: 1 / span 2;
+}
+
 .task-row:hover{
   transform: scaleY(105%);
+}
+@media(max-width:600px){
+  #task-container{
+    width: 100%;
+    min-width: 100%;
+  }
 }

@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 //get the tasks to be displayed
 function taskUpdate(user){
   cont = document.getElementById("task-container");
-  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).where("created","<=",today).orderBy('created').get().then((tasks) => {
+  db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", true).where("created","<=",today).orderBy('created').get().then((tasks) => {
     console.log(tasks);
     taskTable(tasks);
     taskStrikethrough(tasks)
@@ -31,12 +31,12 @@ function taskTable(tasks) {
   tasks.forEach((t) => {
     cont.innerHTML = cont.innerHTML + taskRow(t.data().name, t.id);
   });
-  tasks.forEach((t) => {
-    checkboxUpdate(t);
-  });
+  // tasks.forEach((t) => {
+  //   checkboxUpdate(t);
+  // });
   //append the table with the add task button
   if (!datepicker){
-    cont.innerHTML = cont.innerHTML + taskAdd();
+    cont.innerHTML = cont.innerHTML + deleteAllTask();
   } else if (tasks.size < 1) {
     cont.innerHTML = "<i>No tasks to display.</i>"
   }
@@ -48,7 +48,7 @@ function taskTable(tasks) {
 //the html code representing one task
 function taskRow(taskName, taskID) {
   let r = '<div class="task-row">';
-  r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
+  // r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
   r = r + '<div class="task-text" id="text_' + taskID + '">' + taskName + '</div>';
   r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDel(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
   r = r + "</div>"
@@ -72,8 +72,8 @@ function taskStrikethrough(tasks){
 }
 
 //html code representing the add button 
-function taskAdd() {
-  return '<div class="task-row"><div class="task-add"><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="plus"></i></button></div></div>'
+function deleteAllTask() {
+  return '<div class="task-row"><div class="task-delete-all"><button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalTask"><i data-feather="trash-2"></i> Delete All </button></div></div>'
 }
 
 //deletes tasks when user clicks "trash" button
@@ -186,18 +186,18 @@ var datepicker = false;
 //date that is currently being displayed 
 var today = firebase.firestore.Timestamp.now().toDate();
 
-//check off tasks that have been completed
-function checkboxUpdate(task) {
-  dates = task.data().completed;
-  if (dates != null) {
-    for (i = 0; i < dates.length; i++) {
-      if (today.toDateString() == dates[i].toDate().toDateString()) {
-        checkbox = document.getElementById("check_" + task.id);
-        checkbox.setAttribute("checked", true);
-      //  console.log(checkbox);
-      }
-    }
-  }
+// //check off tasks that have been completed
+// function checkboxUpdate(task) {
+//   dates = task.data().completed;
+//   if (dates != null) {
+//     for (i = 0; i < dates.length; i++) {
+//       if (today.toDateString() == dates[i].toDate().toDateString()) {
+//         checkbox = document.getElementById("check_" + task.id);
+//         checkbox.setAttribute("checked", true);
+//       //  console.log(checkbox);
+//       }
+//     }
+//   }
 
-}
+// }
 
