@@ -77,22 +77,22 @@ function deleteAllTask() {
   return '<div class="task-row"><div class="task-delete-all"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDelAll(this)"><i data-feather="trash-2"></i> Delete All </button></div></div>'
 }
 
-//deletes tasks when user clicks "trash" button
-function taskDelPerm(e){
-  if(confirm("Permanent Delete")){
-    //check if field exist, if yes -> delete
-    db.collection("users").doc(user.uid).collection("tasks").
+// //deletes tasks when user clicks "trash" button
+// function taskDelPerm(e){
+//   if(confirm("Permanent Delete")){
+//     //check if field exist, if yes -> delete
+//     db.collection("users").doc(user.uid).collection("tasks").
     
-    //after checking all fields delete doc() task
+//     //after checking all fields delete doc() task
 
-    let id = e.value;
-    let user = firebase.auth().currentUser;
-    db.collection("users").doc(user.uid).collection("tasks").doc(id).()({
-      deleted: true
-    });
-    taskUpdate(user);
-  }
-}
+//     let id = e.value;
+//     let user = firebase.auth().currentUser;
+//     db.collection("users").doc(user.uid).collection("tasks").doc(id).()({
+//       deleted: true
+//     });
+//     taskUpdate(user);
+//   }
+// }
 
 //deletes tasks when user clicks "trash" button
 function taskUnDel(e){
