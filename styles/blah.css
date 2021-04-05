@@ -19,12 +19,13 @@
 .image-upload img {
 	cursor: pointer; /* "hand" cursor */
 }
+.card{
+  background: none;
+}
 body{
-
   background-image: url("../images/background25.png");
   background-size: cover;
   background-attachment: fixed;
-
 }
 .nav{
   border-bottom: solid 1pt #e9ecef;
