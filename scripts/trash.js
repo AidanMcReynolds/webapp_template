@@ -34,9 +34,9 @@ function taskTable(tasks) {
   if (tasks.size < 1) {
     cont.innerHTML = "<i>No tasks to display.</i>";
   } else {
+    //if have task
     cont.innerHTML = cont.innerHTML + displayDeleteAllBtn();
   }
-
   feather.replace()
   cont.style.visibility = "visible";
 }
@@ -44,7 +44,6 @@ function taskTable(tasks) {
 //the html code representing one task
 function taskRow(taskName, taskID) {
   let r = '<div class="task-row">';
-  // r = r + '<div class="task-check"><input class="form-check-input me-1" onclick="taskClick(this)" type="checkbox" id="check_' + taskID + '" value="' + taskID + '" aria-label="..."></div>';
   r = r + '<div class="task-unDel"><button type="button" class="btn btn-outline-secondary btn-sm" onclick="taskUnDel(this)" value="' + taskID + '"><i data-feather="rotate-ccw"></i></button></div>'; r = r + "</div>"
   r = r + '<div class="task-text" id="text_' + taskID + '">' + taskName + '</div>';
   r = r + '<div class="task-del"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDelete(this)" value="' + taskID + '"><i data-feather="trash-2"></i></button></div>'
@@ -62,7 +61,7 @@ function taskUnDel(e) {
   taskUpdate(user);
 }
 
-//delete task when user clicks delete permantly
+//delete task permantly
 function taskDelete(e) {
   if (confirm("Permanent Delete\nCannot be reversed")) {
     let id = e.value;
@@ -81,6 +80,7 @@ function displayDeleteAllBtn() {
   return '<div class="task-row"><div class="task-delete-all"><button type="button" class="btn btn-outline-danger btn-sm" onclick="taskDeleteAll(this)"><i data-feather="trash-2"></i> Delete All</button></div></div>'
 }
 
+//delete all tasks
 function taskDeleteAll() {
   if (confirm("Permanent Delete All\nCannot be reversed")) {
     let user = firebase.auth().currentUser;
@@ -97,7 +97,6 @@ function taskDeleteAll() {
       }).catch((e) => {
         console.log(e.message);
       });
-    
   }
 }
 
@@ -125,9 +124,7 @@ function displayTasks() {
       })
     })
 }
-
 //equals true when on the datepicker page
 var datepicker = false;
-
 //date that is currently being displayed 
 var today = firebase.firestore.Timestamp.now().toDate();
