@@ -38,9 +38,15 @@ function progressDays(task) {
     return n;
 }
 
+<<<<<<< HEAD
 //updates the progress bar
 function progressDisplay(variable , eleID) {
     let x = document.getElementById(eleID);
+=======
+//updates the progress
+function progressDisplay(variable) {
+    let x = document.getElementById("progress1");
+>>>>>>> a5d9b2ca9ee0e4e9c0fff011c0d4ea1f7cef6a38
     x.style.width = " " + (variable * 100) + "%";
 }
 

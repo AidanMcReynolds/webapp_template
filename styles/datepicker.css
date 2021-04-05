@@ -148,7 +148,7 @@
 }
 
 .ui-datepicker a:hover {
-    background: rgb(89, 223, 71);
+    background: #06367D;
     color: rgb(255, 255, 255);
 }
 @media (min-width: 1000px){

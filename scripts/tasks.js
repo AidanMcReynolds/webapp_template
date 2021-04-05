@@ -149,29 +149,28 @@ function taskClick(id) {
 
 //update databse when user completes task
 function taskDo(id) {
-  let td = firebase.firestore.Timestamp.now();
+  //let td = firebase.firestore.Timestamp.now();
   user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid).collection("tasks").doc(id).get().then((task) => {
     dates = task.data().completed;
     for (i = 0; i < dates.length; i++) {
-      if (td.toDate().toDateString() == dates[i].toDate().toDateString()) {
+      if (today.toDateString() == dates[i].toDate().toDateString()) {
         return;
       }
     }
     db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
-      completed: firebase.firestore.FieldValue.arrayUnion(td)
+      completed: firebase.firestore.FieldValue.arrayUnion(firebase.firestore.Timestamp.fromDate(today))
     }).then(taskUpdate(user));
   });
 }
 
 //update database when user unchecks checkbox
 function taskUndo(id) {
-  let td = firebase.firestore.Timestamp.now();
   user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid).collection("tasks").doc(id).get().then((task) => {
     dates = task.data().completed;
     for (i = 0; i < dates.length; i++) {
-      if (td.toDate().toDateString() == dates[i].toDate().toDateString()) {
+      if (today.toDateString() == dates[i].toDate().toDateString()) {
         db.collection("users").doc(user.uid).collection("tasks").doc(id).update({
           completed: firebase.firestore.FieldValue.arrayRemove(dates[i])
         }).then(taskUpdate(user));
