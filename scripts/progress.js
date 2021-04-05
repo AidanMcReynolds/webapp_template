@@ -13,6 +13,10 @@ function progressUpdate(user) {
         progressDisplay(progressPercentWeek(tasks), "progress2");
         console.log(tasks)
         console.log(progressPercentWeek(tasks));
+
+        progressDisplay(progressPercentDay(tasks), "progress3");
+        console.log(tasks)
+        console.log(progressPercentDay(tasks));
     });
 }
 
@@ -56,11 +60,25 @@ function progressPercentWeek(task){
             }
         });
         let x = progressDays(t);
-        if(x > 7){
-            days = days + 7;
-        }else{
-            days = days + x;
-        }
+        days = x > 7 ? days + 7: days + x;
+        n = n + m;
+    });
+    return n/days;
+}
+
+//returns sum of all times all tasks within last day completed divided by the total number of times tasks could have been completed
+function progressPercentDay(task){
+    let days = 0;
+    let n = 0;
+    task.forEach((t) => {
+        let m = 0;
+        t.data().completed.forEach((s) => {
+            if(s > firebase.firestore.Timestamp.now()-(60*60*24)){
+                m++;
+            }
+        });
+        let x = progressDays(t);
+        days = x > 1 ? days + 1: days + x;
         n = n + m;
     });
     return n/days;
