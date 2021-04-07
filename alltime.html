@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Progress Page</title>
+    <title>All-Time Progress Page</title>
     <meta name="comp1800 boilerplate code" content="my bcit project" />
     <meta name="author" content="BCIT" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,13 +14,9 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
     <!-- Optional styles and scripts of your own -->
-    <!--JQuery------------------------------------------------------------------>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
     <!-- Firebase-->
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    <!-- Optional styles and scripts of your own -->
     <!--our custom stylesheet-->
     <link href="./styles/blah.css" rel="stylesheet">
 </head>
@@ -28,23 +25,19 @@
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
-
     <!-- Navigation Bar -->
-    <ul class="nav sticky-top nav-light nav-expand-lg mb-5">
+    <ul class="nav sticky-top nav-light nav-expand-lg shadow-sm mb-5">
         <li class="me-auto nav-item">
-            <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="dribbble"></i> Healthy
+            <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
                 Reminder</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i
-                    data-feather="bar-chart"></i>
-                <!--progress bar-->
-            </a>
+            <a class="nav-link right-s-nav" title="progress bar" href="./progress.html"><i data-feather="bar-chart"></i>
+                <!--progress bar--></a>
         </li>
         <li class="nav-item">
             <a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i data-feather="calendar"></i>
-                <!--calendar-->
-            </a>
+                <!--calendar--></a>
         </li>
         <div class="btn-group">
             <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
@@ -63,15 +56,41 @@
         </div>
     </ul>
     <!-- Navigation Bar -->
+    <div class="container">
 
-    <div class="container" id="prog-container">
-        <!-- <div class="progress" style="height: 1px;">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100">
+        <!-- container class holds all progress bars -->
+        <div class="container">
+
+            <div class="title">
+                <h1 class="display-1">Progress</h1>
             </div>
-        </div> -->
-        <!-- end of container class -->
+            <br>
+            <br>
+            <div class="title">
+                <h1 class="display-4">All-Time</h1>
+            </div>
+            <div class="progress" style="height: 1px;">
+                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100">
+                </div>
+            </div>
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100">
+                </div>
+            </div>
+            <!-- end of container class -->
+        </div>
+        <br>
+
+        <!-- alert popup -->
+        <div class="w3-panel w3-green w3-round-xxlarge">
+            <h3>Hooray!</h3>
+            <p>You are so close to finishing your task.</p>
+        </div>
     </div>
+    <br>
+    <br>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
@@ -102,11 +121,9 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <script src="./scripts/config.js"></script>
     <script src="./scripts/auth.js"></script>
-    <script src="./scripts/progress.js"></script>
 
     <!--icons-->
     <script src="./scripts/feather.min.js"></script>
-
 </body>
 
 </html>
