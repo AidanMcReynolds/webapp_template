@@ -31,14 +31,14 @@ function progressDisplayHtml() {
     cont = document.getElementById("prog-container");
     cont.innerHTML = "";
 
-    cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Progress</h1></div><br/>";
+    cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Track Your Progress</h1></div><br/>";
 
     for (let i = 0; i < 3; i++) {
         cont.innerHTML = cont.innerHTML + progressDisplayHtmlRow(subTitle[i], i + 1);
     }
 
     function progressDisplayHtmlRow(subtitle, num) {
-        let r = '<br/><div class="title"><h1 class="display-4">' + subtitle + '</h1></div><div class="progress" style="height: 20px;">';
+        let r = '<br/><br/><br/><div class="title"><h1 class="display-4">' + subtitle + '</h1></div><div class="progress" style="height: 20px;">';
         r = r + '<div id="progress' + num + '" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div></div>';
         return r;
     }

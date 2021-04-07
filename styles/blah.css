@@ -34,5 +34,20 @@ body{
 
 
 .box {
-  text-align: center;
+  margin: auto;
+  width: 80%;
+  max-width: 600px;
+  
+}
+
+.box div {
+  width: fit-content;
+  margin: auto;
+
+}
+
+.profile {
+  height: 170px ;
+  width: 170px;
+  object-fit: cover;
 }

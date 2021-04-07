@@ -1,6 +1,6 @@
+//defines the datepicker
 $(function () {
     $('#datepicker').datepicker({
-
         inline: true,
         showOtherMonths: true,
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],

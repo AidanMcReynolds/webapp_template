@@ -12,7 +12,8 @@ Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
+* JQuerry and JQuerryUI
+* 
 	
 ## Content
 Content of the project folder:
