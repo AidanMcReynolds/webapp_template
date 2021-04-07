@@ -49,7 +49,7 @@
       </button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-        <li><a class="dropdown-item" href="#"><i data-feather="trash-2"></i> trash</a></li>
+        <li><a class="dropdown-item" href="./trash.html"><i data-feather="trash-2"></i> trash</a></li>
         <li>
         <li><a id="logOut" class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
         <hr class="dropdown-divider">
@@ -67,34 +67,11 @@
         <div class="card" style="width: 18rem;">
           <div class="image-upload">
             <label for="file-input">
-              <img id="previewImag" class="card-img-top rounded-circle mb-4" alt="...">
-              //src="./images/profile_random.jpeg"
+              <img id="previewImag" class="card-img-top rounded-circle mb-4" src="./images/profile_random.jpeg" alt="profile picture">
             </label>
-            <input id="file-input" type="file" onchange="previewFile()">
-          </div>
-          <div class="card-body text-center">
-            <a href="#" class="btn btn-light">Edit profile</a>
-
-            <!--<div class="mb-3" id="icon-bar">
-              <a class="links" href="#">
-                <i class="fas fa-star"> </i>
-                <span class="text-bold color-text-primary">2</span>
-                stars
-              </a>
-              <a class="links" href="#">
-                <i data-feather="users"> </i>
-                <span class="text-bold color-text-primary">4</span>
-                follows
-              </a>
-              <a class="links" href="#">
-                <i class="fas fa-heart"> </i>
-                <span class="text-bold color-text-primary">2</span>
-                likes
-              </a>
-            </div>-->
+            <input id="file-input" type="file">
           </div>
         </div>
-
       </div>
       <div class="col col-md-7">
         <div class="card" style="width: 18rem;">
@@ -146,8 +123,7 @@
                 </div>
               </div>
               <div class="mb-1 col-md-2">
-                <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                  data-bs-target="#exampleModalPassword">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModalPassword">
                   <i data-feather="edit-3"></i>
                 </button>
               </div>
@@ -265,13 +241,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <script src="./scripts/config.js"></script>
     <script src="./scripts/auth.js"></script>
     <!--icons-->
-    <script>
-
-    </script>
     <script src="./scripts/feather.min.js"></script>
     <script src="./scripts/profile.js"></script>
 </body>

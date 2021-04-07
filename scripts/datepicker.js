@@ -20,7 +20,7 @@ $(document).ready(function () {
 function changeDate(date) {
   date.setHours(1);
   today = date;
-  updateDateBlock()
+  updateDateBlock();
   let user = firebase.auth().currentUser;
   taskUpdate(user);
 }
