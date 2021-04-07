@@ -36,6 +36,10 @@ It has the following subfolders and files:
     /background25.png        # background image
     /profile_random.jpeg     # default profile picture
 ├── scripts                  # Folder for scripts
+    ├── My BCIT Project_file # Sub-folder for misc libraries
+        /boostrap.css        # css used by boostrap
+        /boostrap.js         # bootstrap javascript file
+        /feather.js          # feater io javascript file
     /auth.js                 # Handles user authentication
     /config.js               # Configures firebase
     /datepicker.js           # Adds functionality to the datepicker
