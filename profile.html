@@ -17,8 +17,6 @@
 
   <!-- Optional styles and scripts of your own -->
   <!--our custom stylesheet-->
-  <link href="./fontawesome-free-5.15.2-web/css/fontawesome.min.css" rel="stylesheet">
-  <link href="./fontawesome-free-5.15.2-web/css/solid.min.css" rel="stylesheet">
   <link href="./styles/blah.css" rel="stylesheet">
 
 </head>
@@ -31,7 +29,7 @@
   <!-- Navigation Bar -->
   <ul class="nav sticky-top nav-light nav-expand-lg mb-5">
     <li class="me-auto nav-item">
-      <a class="nav-link active" aria-current="page" href="./main.html"><i class="fas fa-home"> </i> Healthy
+      <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="dribbble"></i>Healthy
         Reminder</a>
     </li>
     <li class="nav-item">
@@ -60,14 +58,23 @@
   </ul>
 
   <!-- Navigation Bar -->
-
+  <div class="box">
+  <div>
+      <h1 class="display-4">Edit Your Profile</h1>
+  </div>
+</div>
+<br>
   <div class="container">
     <div class="row">
       <div class="col-md-5">
         <div class="card" style="width: 18rem;">
           <div class="image-upload">
             <label for="file-input">
+<<<<<<< HEAD
               <img id="previewImag" class="card-img-top rounded-circle mb-4" src="./images/profile_random.jpeg"
+=======
+              <img id="previewImag"  class="card-img-top rounded-circle mb-4 profile" src="./images/profile_random.jpeg"
+>>>>>>> 68e303768d1281e1f57e1e9c1162ed160bef7b9d
                 alt="profile picture">
             </label>
             <input id="file-input" type="file">
@@ -109,10 +116,22 @@
             </div>
             <div id="password" class="row mb-5 profile-detail">
               <div class="col-md-10">
+<<<<<<< HEAD
                 <label>
                   <h3>Password</h3>
                 </label>
                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModalPassword">
+=======
+                <div>
+                  <label>
+                    <h3>Password</h3>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-1 col-md-2">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                  data-bs-target="#exampleModalPassword">
+>>>>>>> 68e303768d1281e1f57e1e9c1162ed160bef7b9d
                   <i data-feather="edit-3"></i>
                 </button>
               </div>
@@ -139,7 +158,12 @@
             <div class="modal-body">
               <div id="newDisplayName">
                 <label>New display name</label><br />
+<<<<<<< HEAD
                 <input id="modalInputName" type="text" placeholder="new display name" required="required">
+=======
+                <input id="modalInputName" type="text" placeholder="new display name" pattern="[a-zA-Z0-9]{1,20}"
+                  required="required">
+>>>>>>> 68e303768d1281e1f57e1e9c1162ed160bef7b9d
               </div>
             </div>
             <div class="modal-footer">
@@ -210,6 +234,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
   <!--Modal  ^^^^^^^^^^^^-->
   <!--NOT connected to DB-->
@@ -235,6 +260,32 @@
   <!--icons-->
   <script src="./scripts/feather.min.js"></script>
   <script src="./scripts/profile.js"></script>
+=======
+    <!--Modal  ^^^^^^^^^^^^-->
+    <!--NOT connected to DB-->
+
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <!--auth-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <!--icons-->
+    <script src="./scripts/feather.min.js"></script>
+    <script src="./scripts/profile.js"></script>
+>>>>>>> 68e303768d1281e1f57e1e9c1162ed160bef7b9d
 </body>
 
 </html>

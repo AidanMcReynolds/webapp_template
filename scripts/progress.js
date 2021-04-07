@@ -31,7 +31,7 @@ function progressDisplayHtml() {
     cont = document.getElementById("prog-container");
     cont.innerHTML = "";
 
-    cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Progress</h1></div><br/>";
+    cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Track Your Progress</h1></div><br/>";
 
     for (let i = 0; i < 3; i++) {
         cont.innerHTML = cont.innerHTML + progressDisplayHtmlRow(subTitle[i], i + 1);
