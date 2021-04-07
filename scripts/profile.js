@@ -4,6 +4,20 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function updateProfilePage(user) {
   console.log(user.photoURL);
+  
+  db.collection("users").doc(user.uid).doc("profile-pic").get().then((doc) => {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+        document.getElementById("previewImag").setAttribute("src", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+    document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
+});
 
   // user.photoUrl = "./images/profile_random.jpeg";
   // document.getElementById("previewImag").innerHTML = user.photoUrl;
@@ -45,7 +59,28 @@ function previewFile() {
 
   if (file) {
     reader.readAsDataURL(file);
+    saveProfilePic(file);
   }
+}
+
+function saveProfilePic(file) {
+  user = firebase.auth().currentUser;
+  var storageRef = firebase.storage().ref("images/" + user.uid + ".jpg"); // Get reference
+  storageRef.put(file).then(function () {
+    console.log('Uploaded to Cloud Storage.');
+
+    storageRef.getDownloadURL()
+    .then(function (url) { // Get URL of the uploaded file
+      console.log(url); // Save the URL into users collection
+      db.collection("users").doc(user.uid).update({
+        "profile-pic": url
+      }).then(() => {
+        // Upload picked file to cloud storage
+        console.log('Added Profile Pic URL to Firestore.');
+      })
+    })
+  }); 
+  
 }
 
 function reAuthenticate(currentPassword) {
@@ -63,8 +98,8 @@ function submitPasswordDB(e) {
     var user = firebase.auth().currentUser;
     var newPassword = getInputValue("modalInputPassword");
     var confirmPassword = getInputValue("modalInputPasswordConfirm");
-    
-    if (newPassword !== confirmPassword){
+
+    if (newPassword !== confirmPassword) {
       alert("New password and confirm new password not same");
     } else {
       user.updatePassword(newPassword).then(() => {
