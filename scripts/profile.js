@@ -4,21 +4,16 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function updateProfilePage(user) {
   console.log(user.photoURL);
-  
-  db.collection("users").doc(user.uid).doc("profile-pic").get().then((doc) => {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-        document.getElementById("previewImag").setAttribute("src", doc.data());
+  db.collection("users").doc(user.uid).get().then((t) => {
+    if(t.data().profilePic !== null){
+      console.log("Document data:", t.data().profilePic);
+      document.getElementById("previewImag").setAttribute("src", t.data().profilePic);
     } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-        document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
+      console.log("No such document!\n"+ e.message);
+      document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
     }
-}).catch((error) => {
-    console.log("Error getting document:", error);
-    document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
-});
-
+  });
+ 
   // user.photoUrl = "./images/profile_random.jpeg";
   // document.getElementById("previewImag").innerHTML = user.photoUrl;
   setInputValue("displayNameText", "<h5>" + user.displayName + "</h5>");
@@ -73,7 +68,7 @@ function saveProfilePic(file) {
     .then(function (url) { // Get URL of the uploaded file
       console.log(url); // Save the URL into users collection
       db.collection("users").doc(user.uid).update({
-        "profile-pic": url
+        "profilePic": url
       }).then(() => {
         // Upload picked file to cloud storage
         console.log('Added Profile Pic URL to Firestore.');
