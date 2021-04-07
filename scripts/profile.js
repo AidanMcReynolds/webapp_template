@@ -34,12 +34,12 @@ function updateProfilePage(user) {
   feather.replace();
 }
 
-//set html of an element
+//set html of an element (helper function)
 function setInputValue(name, content) {
   document.getElementById(name).innerHTML = content;
 }
 
-//get value of an element
+//get value of an element (helper function)
 function getInputValue(id) {
   return document.getElementById(id).value;
 }
@@ -109,7 +109,7 @@ function submitPasswordDB(e) {
     if (newPassword !== confirmPassword) {
       alert("New password and confirm new password not same");
     } else {
-      //change pw
+      //change pw Authentication
       user.updatePassword(newPassword).then(() => {
         alert("Password was changed");
       }).catch((error) => {
@@ -136,9 +136,11 @@ function changeDisplayName(name) {
   var user = firebase.auth().currentUser;
 
   console.log(db.collection("users").doc(user.uid));
+  //update user attribute
   user.updateProfile({
     displayName: name
   }).then(() => {
+    //update firebase
     db.collection("users").doc(user.uid).update({
       name: user.displayName
     });
@@ -166,15 +168,17 @@ function submitEmailDB(e) {
   setInputValue("emailText", "<h5>" + newEmail + "</h5>");
 }
 
-//change email in firebase
+//change email
 function changeEmail(name) {
   var user = firebase.auth().currentUser;
 
+  //update in Authentication
   user.updateEmail(name).then(() => {
     // Update successful.
     console.log(name);
-    db.collection("users").doc(user.uid).update({         //write to firestore                 //"users" collection
-      email: user.email                          //with authenticated user's ID (user.uid)
+    //update in firebase
+    db.collection("users").doc(user.uid).update({ 
+      email: user.email
     })
   }).then(() => {
     alert("Email was changed");

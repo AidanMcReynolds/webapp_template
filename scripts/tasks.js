@@ -40,6 +40,7 @@ function taskTable(tasks) {
   } else if (tasks.size < 1) {
     cont.innerHTML = "<i>No tasks to display.</i>";
   }
+  addTaskModal();
   //add task listener
   document.getElementById("exampleModalTask").addEventListener("submit", submitTaskDB);
   feather.replace();
@@ -56,6 +57,14 @@ function taskRow(taskName, taskID) {
   return r;
 }
 
+function addTaskModal(){
+  let addTModal = document.getElementById("tm");
+  let atm = '<div class="modal fade" id="exampleModalTask" tabindex="-1" aria-labelledby="exModalTask" aria-hidden="true"><div class="modal-dialog"><div class="modal-content">';
+  atm = atm + '<form id="form-task" action="#"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Task</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>';
+  atm = atm + '<div class="modal-body"><input id="task" type="text" placeholder="new task" maxlength="26" required="required"></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>';
+  atm = atm + '<button type="submit" class="btn btn-primary">Save</button></div></form></div></div></div>';
+  addTModal.innerHTML = atm;
+}
 //strikes through tasks that have been completed
 function taskStrikethrough(tasks){
   tasks.forEach((t) => {

@@ -34,7 +34,7 @@ function progressDisplayHtml() {
     cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Progress</h1></div><br/>";
 
     for (let i = 0; i < 3; i++) {
-        cont.innerHTML = cont.innerHTML + progressDisplayHtmlRow(subTitle[i], i+1);
+        cont.innerHTML = cont.innerHTML + progressDisplayHtmlRow(subTitle[i], i + 1);
     }
 
     function progressDisplayHtmlRow(subtitle, num) {
