@@ -31,3 +31,8 @@ body{
   border-bottom: solid 1pt #e9ecef;
   background-color: white;
 }
+
+
+.box {
+  text-align: center;
+}
