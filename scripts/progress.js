@@ -9,19 +9,19 @@ function progressUpdate(user) {
 
         progressDisplayHtml();
         progressDisplay(progressPercent(tasks), "progress1");
-        console.log(tasks);
-        console.log(progressPercent(tasks));
+        // console.log(tasks);
+        // console.log(progressPercent(tasks));
 
         //Number of days
         let weekly = 7;
         let daily = 1;
         progressDisplay(progressPercentage(tasks, weekly), "progress2");
-        console.log(tasks, weekly);
-        console.log(progressPercentage(tasks, weekly));
+        // console.log(tasks, weekly);
+        // console.log(progressPercentage(tasks, weekly));
 
         progressDisplay(progressPercentage(tasks, daily), "progress3");
-        console.log(tasks, daily);
-        console.log(progressPercentage(tasks, daily));
+        // console.log(tasks, daily);
+        // console.log(progressPercentage(tasks, daily));
     });
 }
 
