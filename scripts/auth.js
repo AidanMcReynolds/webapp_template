@@ -1,9 +1,9 @@
 //if the user is not logged in redirect them to the homepage
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log("hello " + user.email)
+    console.log("hello " + user.email);
   } else {
-    window.location.pathname = "/index.html"
+    window.location.pathname = "/index.html";
   }
 });
 
