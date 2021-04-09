@@ -24,7 +24,7 @@ function logOutUser() {
   });
 }
 
-//hello
+//display username on page
 function sayHello() {
   firebase.auth().onAuthStateChanged(function (somebody) {
     if (somebody) {

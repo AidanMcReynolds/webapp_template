@@ -22,11 +22,13 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
+├── 404.html                 # 404 HTML file
 ├── index.html               # landing HTML file,
 ├── main.html                # main HTML page 
 ├── progress.html            # progress bar page
-├── profile.html              # allows user to update their profile
-├── trash.html                # allows users to restore deleted tasks
+├── profile.html             # allows user to update their profile
+├── trash.html               # allows users to restore deleted tasks
+├── favicon.ico              # favicon
 └── README.md
  
  
@@ -36,6 +38,10 @@ It has the following subfolders and files:
     /background25.png        # background image
     /profile_random.jpeg     # default profile picture
 ├── scripts                  # Folder for scripts
+    ├── My BCIT Project_file # Sub-folder for misc libraries
+        /boostrap.css        # css used by boostrap
+        /boostrap.js         # bootstrap javascript file
+        /feather.js          # feater io javascript file
     /auth.js                 # Handles user authentication
     /config.js               # Configures firebase
     /datepicker.js           # Adds functionality to the datepicker
@@ -49,12 +55,18 @@ It has the following subfolders and files:
     /blah.css                # Main CSS file for page
     /tasks.css               # Main CSS file for tasks
     /datepicker.css          # Main CSS file for datepicker page
- 
+
  
 Firebase hosting files: 
+├── .firebase
+        /hosting.cache
 ├── .firebaserc...
- 
- 
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+└── storage.rules
+
+
 ```
  
  
