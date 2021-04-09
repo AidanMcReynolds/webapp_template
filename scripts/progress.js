@@ -72,7 +72,7 @@ function progressDisplay(variable, eleID) {
     x.style.width = " " + (variable * 100) + "%";
 }
 
-//returns sum of all times all tasks within last week (7 days) completed divided by the total number of times tasks could have been completed
+//returns sum of all times all tasks within number of days completed divided by the total number of times tasks could have been completed
 function progressPercentage(task, dayNumber) {
     let days = 0;
     let n = 0;
