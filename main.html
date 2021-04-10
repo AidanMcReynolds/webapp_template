@@ -18,7 +18,7 @@
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
   <!--JQuery------------------------------------------------------------------>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
   <!-- Optional styles and scripts of your own -->
   <!--our custom stylesheet-->
@@ -34,11 +34,37 @@
 
   <!-- Navigation Bar -->
   <ul class="nav sticky-top nav-light nav-expand-lg mb-5">
-    <li class="me-auto nav-item" id="navTitle"></li>
-    <li class="nav-item" id="prog"></li>
-    <li class="nav-item" id="cal"></li>
-    <div class="btn-group" id="btnNav"></div>
-  </ul>
+    <li class="me-auto nav-item">
+        <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="dribbble"></i> Healthy
+            Reminder</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i
+                data-feather="bar-chart"></i>
+            <!--progress bar-->
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i data-feather="calendar"></i>
+            <!--calendar-->
+        </a>
+    </li>
+    <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i data-feather="user"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+            <li><a class="dropdown-item" href="./trash.html"><i data-feather="trash-2"></i> trash</a></li>
+            <li>
+            <li><a id="logOut" class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
+            <hr class="dropdown-divider">
+            </li>
+            <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
+        </ul>
+    </div>
+</ul>
   <!-- Navigation Bar -->
   <div class="box">
     <h1 class="display-4"> Hello, <span id="name-goes-here"></span> </h1>
