@@ -51,8 +51,3 @@ body{
   width: 170px;
   object-fit: cover;
 }
-
-.vertical {
-  display: block;
-  padding: .5rem 1rem;
-}
