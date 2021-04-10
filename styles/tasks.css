@@ -11,6 +11,9 @@
   display: grid;
   grid-template-columns: 10% 80% 10%;
 }
+#task-container .task-trash{
+  grid-template-columns: 15% 75% 10%;
+}
 #task-container .task-check {
   grid-column: 1 / span 1;
 }
