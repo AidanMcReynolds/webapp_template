@@ -28,7 +28,6 @@ function taskTable(tasks) {
   tasks.forEach((t) => {
     cont.innerHTML = cont.innerHTML + taskRow(t.data().name, t.id);
   });
-
   //If no task
   if (tasks.size < 1) {
     cont.innerHTML = "<i>No tasks to display.</i>";

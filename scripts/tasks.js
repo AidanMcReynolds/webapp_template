@@ -173,6 +173,7 @@ function taskUndo(id) {
 
 //equals true when on the datepicker page
 var datepicker = false;
+
 //date that is currently being displayed 
 var today = firebase.firestore.Timestamp.now().toDate();
 

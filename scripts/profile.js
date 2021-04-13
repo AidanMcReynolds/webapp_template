@@ -91,7 +91,6 @@ function reAuthenticate(currentPassword) {
 //change password
 function submitPasswordDB(e) {
   e.preventDefault();
-
   var currPassword = getInputValue("modalInputCurrPassword");
   //reAuthenticate user prior to change password
   reAuthenticate(currPassword).then(() => {
@@ -118,7 +117,6 @@ function submitPasswordDB(e) {
 //show changed display name
 function submitDisplayNameDB(e) {
   e.preventDefault();
-
   var newDisplayName = getInputValue("modalInputName");
   changeDisplayName(newDisplayName);
   setInputValue("displayNameText", "<h5>" + newDisplayName + "</h5>");
@@ -144,9 +142,7 @@ function changeDisplayName(name) {
 //change user email
 function submitEmailDB(e) {
   e.preventDefault();
-
   var newEmail = getInputValue("modalInputEmail");
-
   var currPassword = getInputValue("modalInputCurrPasswordE");
   //reAuthenticate
   reAuthenticate(currPassword).then(() => {
@@ -160,7 +156,6 @@ function submitEmailDB(e) {
 //change email
 function changeEmail(name) {
   var user = firebase.auth().currentUser;
-
   //update in Authentication
   user.updateEmail(name).then(() => {
     //successfully update in firebase
