@@ -6,22 +6,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 //  Need all of the tasks data from the user - user collection -> task collection (reading database)
 function progressUpdate(user) {
     db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).get().then((tasks) => {
-
-        progressDisplayHtml();
-        progressDisplay(progressPercent(tasks), "progress1");
-        // console.log(tasks);
-        // console.log(progressPercent(tasks));
-
         //Number of days
         let weekly = 7;
         let daily = 1;
+        progressDisplayHtml();
+        progressDisplay(progressPercent(tasks), "progress1");
         progressDisplay(progressPercentage(tasks, weekly), "progress2");
-        // console.log(tasks, weekly);
-        // console.log(progressPercentage(tasks, weekly));
-
         progressDisplay(progressPercentage(tasks, daily), "progress3");
-        // console.log(tasks, daily);
-        // console.log(progressPercentage(tasks, daily));
     });
 }
 
@@ -30,7 +21,6 @@ function progressDisplayHtml() {
     let subTitle = ["All-Time", "Weekly", "Daily"];
     cont = document.getElementById("prog-container");
     cont.innerHTML = "";
-
     cont.innerHTML = cont.innerHTML + "<div class='title'><h1 class='display-1'>Track Your Progress</h1></div><br/>";
 
     for (let i = 0; i < 3; i++) {

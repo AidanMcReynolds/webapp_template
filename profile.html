@@ -4,74 +4,60 @@
 <head>
   <meta charset="utf-8" />
   <!--favicon-->
-  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="./site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="./site.webmanifest" />
   <title>Profile</title>
   <meta name="comp1800 boilerplate code" content="healthy reminder" />
   <meta name="author" content="BCIT" />
-
   <!-- Bootstrap for Mobile-first, and JQuery -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
-
   <!--JQuery------------------------------------------------------------------>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-  <!-- Optional styles and scripts of your own -->
   <!--our custom stylesheet-->
-  <link href="./styles/blah.css" rel="stylesheet">
-
+  <link href="./styles/blah.css" rel="stylesheet" />
 </head>
 
 <body>
   <!-------------------------------------->
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
-
-  <!-- Navigation Bar -->
   <ul class="nav sticky-top nav-light nav-expand-lg mb-5">
-    <li class="me-auto nav-item">
-        <a class="nav-link active" aria-current="page" href="./main.html"><i data-feather="dribbble"></i> Healthy
-            Reminder</a>
+    <li class="me-auto nav-item"><a class="nav-link active" aria-current="page" href="./main.html"><i
+          data-feather="dribbble"></i> Healthy
+        Reminder</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i
-                data-feather="bar-chart"></i>
-            <!--progress bar-->
-        </a>
+      <a class="nav-link right-s-nav" title="progress bar" href="./progress.html" href="./progress.html"><i
+          data-feather="bar-chart"></i></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i data-feather="calendar"></i>
-            <!--calendar-->
-        </a>
+    <li class="nav-item"><a class="nav-link right-s-nav" title="calendar" href="./datepicker.html"><i
+          data-feather="calendar"></i></a>
     </li>
     <div class="btn-group">
-        <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i data-feather="user"></i>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
-            <li><a class="dropdown-item" href="./trash.html"><i data-feather="trash-2"></i> trash</a></li>
-            <li>
-            <li><a id="logOut" class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
-            <hr class="dropdown-divider">
-            </li>
-            <!--<li><a class="dropdown-item" href="#">><i data-feather="log-out"></i> log out</a></li>-->
-        </ul>
+      <button type="button" class="btn btn-light dropdown-toggle right-s-nav" data-bs-toggle="dropdown"
+        aria-expanded="false"><i data-feather="user"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="./profile.html"><i data-feather="user"></i> profile</a></li>
+        <li><a class="dropdown-item" href="./trash.html"><i data-feather="trash-2"></i> trash</a></li>
+        <li><a id="logOut" class="dropdown-item" href="#"><i data-feather="log-out"></i> log out</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+      </ul>
     </div>
-</ul>
-
-  <!-- Navigation Bar -->
+  </ul>
   <div class="box">
-  <div>
+    <div>
       <h1 class="display-4">Edit Your Profile</h1>
+    </div>
   </div>
-</div>
-<br>
+  <br>
+
   <div class="container">
     <div class="row">
       <div class="col-md-5">
@@ -98,7 +84,6 @@
                 </button>
                 <div class="text-secondary mb-1">
                   <label id="displayNameText">
-                    <!-- <h5>First Last</h5> -->
                   </label>
                 </div>
               </div>
@@ -113,7 +98,6 @@
                 </button>
                 <div class="text-secondary mb-1">
                   <label id="emailText">
-                    <!-- <h5>firstlast@example.com</h5> -->
                   </label>
                 </div>
               </div>
@@ -138,11 +122,7 @@
       </div>
     </div>
 
-    <!--Profile component Feb 17 2021-->
-
-    <!--Profile component Feb 17 2021-->
-    <!--NOT connected to DB-->
-    <!-- Modal VVVVVVVVVVVVVVVVVVVVVVVVVVVV-->
+    <!-- Modal -->
     <!--Name-->
     <div class="modal fade" id="exampleModalName" tabindex="-1" aria-labelledby="exModalName" aria-hidden="true">
       <div class="modal-dialog">
@@ -196,13 +176,15 @@
     </div>
 
     <!--Password-->
-    <div class="modal fade" id="exampleModalPassword" tabindex="-1" aria-labelledby="exModalPassword" aria-hidden="true">
+    <div class="modal fade" id="exampleModalPassword" tabindex="-1" aria-labelledby="exModalPassword"
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <form id="form-pw" action="#">
             <div class="modal-header">
               <h5 class="modal-title">Password</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" required="required"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                required="required"></button>
             </div>
             <div class="modal-body">
               <div id="currPW">
@@ -227,16 +209,12 @@
       </div>
     </div>
   </div>
-  <!--Modal  ^^^^^^^^^^^^-->
-  <!--NOT connected to DB-->
-
   <!----------------------------------------------->
   <!-- JS: Boostrap, Firebase, API related    -->
   <!----------------------------------------------->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
-
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
   <!--------------------------------------------------------------------->

@@ -6,7 +6,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 //get the tasks to be displayed
 function taskUpdate(user) {
   db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", true).where("created", "<=", today).orderBy('created').get().then((tasks) => {
-    console.log(tasks);
     taskTable(tasks);
   });
 }
@@ -66,10 +65,8 @@ function taskDelete(e) {
   if (confirm("Permanent Delete\nCannot be reversed")) {
     let id = e.value;
     let user = firebase.auth().currentUser;
-    db.collection("users").doc(user.uid).collection("tasks").doc(id).delete().then((t) => {
-      console.log(t + " deleted");
-    }).catch((e) => {
-      console.log(e.message);
+    db.collection("users").doc(user.uid).collection("tasks").doc(id).delete().catch((e) => {
+      alert(e.message);
     });
     taskUpdate(user);
   }
@@ -90,12 +87,12 @@ function taskDeleteAll() {
         querySnapshot.forEach((doc) => {
           batch.delete(doc.ref);
         });
+        //batch delete
         batch.commit();
       }).then(() => {
-        console.log("deleted all");
         taskUpdate(user);
       }).catch((e) => {
-        console.log(e.message);
+        alert(e.message);
       });
   }
 }
@@ -107,23 +104,7 @@ function taskToday() {
   let d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, now.getHours(), now.getMinutes(), now.getSeconds());
   return firebase.firestore.Timestamp.fromDate(d);
 }
-//testing in JS console
-function displayTasks() {
-  db.collection("users").doc(firebase.auth().currentUser.uid).collection("tasks").get()
-    .then(function (snap) {
-      snap.forEach(function (doc) {
-        var n = doc.data().name;
-        //console.log(n);
-        var delet = doc.data().deleted;
-        //console.log(delet);
-        var createdTime = doc.data().created;
-        //console.log(createdTime);
-        var cromplete = doc.data().completed;
-        //console.log(cromplete);
-        // document.getElementById(cityId).textContent = n;
-      })
-    })
-}
+
 //equals true when on the datepicker page
 var datepicker = false;
 //date that is currently being displayed 

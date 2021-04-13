@@ -7,7 +7,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 function taskUpdate(user){
   cont = document.getElementById("task-container");
   db.collection("users").doc(user.uid).collection("tasks").where("deleted", "==", false).where("created","<=",today).orderBy('created').get().then((tasks) => {
-    console.log(tasks);
     taskTable(tasks);
     taskStrikethrough(tasks);
   });
@@ -18,7 +17,7 @@ function taskTable(tasks) {
   // update the size of the container for the task list
   cont = document.getElementById("task-container");
   cont.innerHTML = "";
-      // update the size of the container for the task list
+  // update the size of the container for the task list
   let rows = "";
   for (i = 0; i < tasks.size; i++) {
     rows = rows + "40pt ";
@@ -65,6 +64,7 @@ function addTaskModal(){
   atm = atm + '<button type="submit" class="btn btn-primary">Save</button></div></form></div></div></div>';
   addTModal.innerHTML = atm;
 }
+
 //strikes through tasks that have been completed
 function taskStrikethrough(tasks){
   tasks.forEach((t) => {
@@ -74,7 +74,6 @@ function taskStrikethrough(tasks){
       if (today.toDateString() == dates[i].toDate().toDateString()) {
         elem = document.getElementById("text_" + t.id);
         elem.innerHTML = "<s>"+elem.innerHTML+"</s>";
-      //  console.log(checkbox);
       }
     }
   }
@@ -130,23 +129,6 @@ function taskToday(){
   let d = new Date(now.getFullYear(),now.getMonth(),now.getDate(),0,now.getHours(),now.getMinutes(),now.getSeconds());
   return firebase.firestore.Timestamp.fromDate(d);
 }
-//testing in JS console
-function displayTasks() {
-  db.collection("users").doc(firebase.auth().currentUser.uid).collection("tasks").get()
-  .then(function(snap){
-      snap.forEach(function(doc){
-          var n = doc.data().name;
-          //console.log(n);
-          var delet = doc.data().deleted;
-          //console.log(delet);
-          var createdTime = doc.data().created;
-          //console.log(createdTime);
-          var cromplete = doc.data().completed;
-          //console.log(cromplete);
-          // document.getElementById(cityId).textContent = n;
-      })
-    })
-}
 
 //when user clicks checkbox update database
 function taskClick(id) {
@@ -191,7 +173,6 @@ function taskUndo(id) {
 
 //equals true when on the datepicker page
 var datepicker = false;
-
 //date that is currently being displayed 
 var today = firebase.firestore.Timestamp.now().toDate();
 
@@ -203,10 +184,8 @@ function checkboxUpdate(task) {
       if (today.toDateString() == dates[i].toDate().toDateString()) {
         checkbox = document.getElementById("check_" + task.id);
         checkbox.setAttribute("checked", true);
-      //  console.log(checkbox);
       }
     }
   }
-
 }
 

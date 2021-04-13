@@ -4,33 +4,30 @@ firebase.auth().onAuthStateChanged((user) => {
 
 //load profile page
 function updateProfilePage(user) {
-  console.log(user.photoURL);
-  
   document.getElementById("file-input").setAttribute("onchange", "previewFile()");
   //check if profile pic is set & stored at Firebase Storage
   db.collection("users").doc(user.uid).get().then((t) => {
     if(t.data().profilePic !== null){
-      console.log("Document data:", t.data().profilePic);
       document.getElementById("previewImag").setAttribute("src", t.data().profilePic);
     } else {
-      console.log("No such document!\n"+ e.message);
-      // document.getElementById("previewImag").setAttribute("src", "./images/profile_random.jpeg");
+     alert("No such document!\n"+ e.message);
     }
   });
- 
-  // user.photoUrl = "./images/profile_random.jpeg";
-  // document.getElementById("previewImag").innerHTML = user.photoUrl;
   //set user displayName & Email attributes
+  let inputName = document.getElementById("modalInputName");
+  let inputEmail = document.getElementById("modalInputEmail");
+  let modalName = document.getElementById("exampleModalName");
+  let modalEmail = document.getElementById("exampleModalEmail");
+  let modalPassword = document.getElementById("exampleModalPassword")
+
   setInputValue("displayNameText", "<h5>" + user.displayName + "</h5>");
   setInputValue("emailText", "<h5>" + user.email + "</h5>");
-
-  document.getElementById("modalInputName").setAttribute("value", user.displayName);
-  document.getElementById("modalInputEmail").setAttribute("value", user.email);
-
+  inputName.setAttribute("value", user.displayName);
+  inputEmail.setAttribute("value", user.email);
   //listeners
-  document.getElementById("exampleModalName").addEventListener("submit", submitDisplayNameDB);
-  document.getElementById("exampleModalEmail").addEventListener("submit", submitEmailDB);
-  document.getElementById("exampleModalPassword").addEventListener("submit", submitPasswordDB);
+  modalName.addEventListener("submit", submitDisplayNameDB);
+  modalEmail.addEventListener("submit", submitEmailDB);
+  modalPassword.addEventListener("submit", submitPasswordDB);
   feather.replace();
 }
 
@@ -71,19 +68,15 @@ function saveProfilePic(file) {
   user = firebase.auth().currentUser;
   var storageRef = firebase.storage().ref("images/" + user.uid + ".jpg"); // Get reference
   storageRef.put(file).then(function () {
-    console.log('Uploaded to Cloud Storage.');
-    
     //save url of firebase storage to firebase
     storageRef.getDownloadURL()
     .then(function (url) { // Get URL of the uploaded file
-      console.log(url); // Save the URL into users collection
       db.collection("users").doc(user.uid).update({
         "profilePic": url
       }).then(() => {
         // Upload picked file to cloud storage
-        console.log('Added Profile Pic URL to Firestore.');
-      })
-    })
+      });
+    });
   }); 
 }
 
@@ -134,8 +127,6 @@ function submitDisplayNameDB(e) {
 //change display name
 function changeDisplayName(name) {
   var user = firebase.auth().currentUser;
-
-  console.log(db.collection("users").doc(user.uid));
   //update user attribute
   user.updateProfile({
     displayName: name
@@ -144,8 +135,6 @@ function changeDisplayName(name) {
     db.collection("users").doc(user.uid).update({
       name: user.displayName
     });
-  }).then(() => {
-    console.log(name);
   }).catch(error => {
     alert(error.message);
   });
@@ -174,15 +163,13 @@ function changeEmail(name) {
 
   //update in Authentication
   user.updateEmail(name).then(() => {
-    // Update successful.
-    console.log(name);
-    //update in firebase
+    //successfully update in firebase
     db.collection("users").doc(user.uid).update({ 
       email: user.email
     })
   }).then(() => {
     alert("Email was changed");
-    console.log("changed user email in DB");
+    //changed user email in DB
   }).catch(error => {
     alert(error.message);
   });

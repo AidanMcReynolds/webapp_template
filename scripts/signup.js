@@ -13,17 +13,16 @@
                          email: user.email,                         //with authenticated user's ID (user.uid)
                          profilePic: "./images/profile_random.jpeg"  
                      }).then(function () {
-                         console.log("New user added to firestore");
+                         //New user added to firestore
                          window.location.assign("main.html");       //re-direct to main.html after signup
                      })
                      .catch(function (error) {
-                         console.log("Error adding new user: " + error);
+                         alert("Error adding new user: " + error);
                      });
              } else {
                  return true;
              }
              return false;
-
      },
      uiShown: function () {
        // The widget is rendered.
