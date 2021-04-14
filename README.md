@@ -1,8 +1,13 @@
 ## My Web Application (Title)
  
+* [Live Link](#live-link)
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
+* [Credits](#credits)
+
+## Live Link
+https://march-a62dc.web.app/
  
 ## General Info
 This browser based web application is intended to remind users to track their progress while completing their tasks. 
@@ -67,7 +72,8 @@ Firebase hosting files:
 └── storage.rules
 
 
-```
+`## Credits
+Aidan, Gurshawn, Michael`
  
  
  
